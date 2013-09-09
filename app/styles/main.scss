@@ -1,0 +1,38 @@
+@import "compass_twitter_bootstrap";
+
+.nav-tabs > li > a {
+  -webkit-user-select: none;
+  cursor: default;
+}
+
+.container {
+  margin: 20px auto;
+}
+
+.form-horizontal .control-label {
+  width: 180px;
+}
+
+.form-horizontal .controls {
+  margin-left: 200px;
+}
+
+.timepicker {
+  input[type="text"] {
+    text-align: center;
+  }
+
+  .btn-link {
+    color: black;
+    display: block;
+    padding: 0;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.controls > .well {
+  margin: 0 20px 0 0;
+}
