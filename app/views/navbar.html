@@ -1,5 +1,5 @@
 <nav ng-controller="NavbarCtrl">
   <tabset>
-    <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled" select="tabSelected(tab)"></tab>
+    <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.selected" disabled="tab.disabled" select="tabSelected($index)"></tab>
   </tabset>
 </nav>

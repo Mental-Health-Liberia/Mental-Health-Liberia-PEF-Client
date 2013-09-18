@@ -1,0 +1,129 @@
+{
+  "tabs": [
+    {
+      "name": "basic",
+      "title": "Basic Configuration",
+      "fieldsets": [
+        {
+          "title": "Patient",
+          "elements": [
+            {
+              "name": "patient_id",
+              "title": "Patient ID",
+              "type": "patient_id",
+              "validate": [
+                "number",
+                "required"
+              ]
+            },
+            {
+              "name": "referral_source",
+              "title": "Referral Source",
+              "type": "select",
+              "options": [
+                "Clinician",
+                "Messages",
+                "Other",
+                "No response"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Clinician",
+          "elements": [
+            {
+              "name": "clinician_id",
+              "title": "Clinician ID",
+              "type": "text",
+              "validate": [
+                "number",
+                "required"
+              ]
+            },
+            {
+              "name": "clinician_training",
+              "title": "Clinician Training Level",
+              "type": "select",
+              "options": [
+                "No formal training",
+                "Community health worker training",
+                "Physician's assistant training",
+                "General clinician training",
+                "Psychchiatric clinician training",
+                "Other",
+                "No response"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Visit",
+          "elements": [
+            {
+              "name": "service_location",
+              "title": "Location of Service",
+              "type": "text",
+              "placeholder": "Clinic or Hospital Name"
+            },
+            {
+              "name": "date",
+              "title": "Date of Service",
+              "type": "datepicker"
+            },
+            {
+              "name": "time",
+              "title": "Time of Service",
+              "type": "timepicker"
+            },
+            {
+              "name": "reason",
+              "title": "Reason for Visit",
+              "type": "radio",
+              "value": "seeking",
+              "options": [
+                {
+                  "title": "Seeking Mental Health Care",
+                  "name": "seeking"
+                },
+                {
+                  "title": "Other",
+                  "name": "other"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "demographics",
+      "title": "Demographics",
+      "fieldsets": [
+        {
+          "title": "Patient",
+          "elements": [
+            {
+              "name": "age",
+              "title": "Age (years)",
+              "type": "text",
+              "validate": [
+                "number",
+                "required"
+              ]
+            },
+            {
+              "name": "life_role_days",
+              "title": "Number of Days in Life Role",
+              "type": "text",
+              "validate": [
+                "number",
+                "required"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

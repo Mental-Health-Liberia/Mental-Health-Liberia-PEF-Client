@@ -1,0 +1,11 @@
+<form name="form" class="form-horizontal">
+  <fieldset ng-repeat="fieldset in selectedTab.fieldsets">
+    <legend>{{fieldset.title}}</legend>
+    <div class="control-group" ng-repeat="element in fieldset.elements">
+      <label class="control-label" for="{{element.name}}">{{element.title}}</label>
+      <div class="controls">
+        <pef-element ng-model="element.value" type="element.type" name="element.name" options="element.options" placeholder="element.placeholder">
+      </div>
+    </div>
+  </fieldset>
+</form>
