@@ -18,21 +18,34 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope) 
       return callback(config["tabs"]);
     });
   };
-
-  return {
-    get: getConfig,
-    tabs: getTabs,
-    selectTab: function (index) {
+  
+  var getSelectTab = function (index) {
       getTabs(function (tabs) {
         selectedTabIndex = index;
         $rootScope.$broadcast('selectedTabChanged', tabs[selectedTabIndex]);
       });
-    },
-    selectedTab: function (callback) {
+    }
+    
+  var nextTab = function() {
+    	getSelectTab(selectedTabIndex + 1);
+    }
+
+  var selectedTab = function (callback) {
       getTabs(function (tabs) {
         return callback(tabs[selectedTabIndex]);
       });
-    },
-    selectedTabIndex: selectedTabIndex
+    }
+    
+    var getSelectedTabIndex = function () {
+    	return selectedTabIndex;
+    }
+    
+  return {
+    get: getConfig,
+    tabs: getTabs,
+    selectTab: getSelectTab,
+	nextTab: nextTab,
+    selectedTab: selectedTab,
+    selectedTabIndex: getSelectedTabIndex
   }
 });

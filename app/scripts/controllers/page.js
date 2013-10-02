@@ -9,4 +9,8 @@ angular.module('pefApp')
     $scope.$watch('selectedTab', function (newValue) {
       console.log(newValue);
     }, true);
+    
+    $scope.nextButtonClicked = function() {
+      $config.nextTab();
+    }
   });
