@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('pefApp', ['ui.bootstrap'])
+angular.module('pefApp', ['ui.bootstrap'])
   .config(function ($routeProvider) {
     $routeProvider
     .when('/', {

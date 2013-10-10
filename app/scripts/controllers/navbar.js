@@ -7,18 +7,18 @@ angular.module('pefApp')
         return {
           title: tab.title,
           slug: tab.name,
-          selected: ($config.selectedTabIndex() == _.indexOf(tabs, tab))
+          selected: ($config.selectedTabIndex() === _.indexOf(tabs, tab))
         };
       });
     });
-    
-    $scope.$on('selectedTabChanged', function(event, selectedTab) {
-    	_.forEach($scope.tabs, function (tab) {
-    		tab.selected = ($config.selectedTabIndex() == _.indexOf($scope.tabs, tab));
-    	});
+
+    $scope.$on('selectedTabChanged', function () {
+      _.forEach($scope.tabs, function (tab) {
+        tab.selected = ($config.selectedTabIndex() === _.indexOf($scope.tabs, tab));
+      });
     });
-    
+
     $scope.tabSelected = function (index) {
       $config.selectTab(index);
-    }
+    };
   });
