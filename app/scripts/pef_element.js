@@ -30,7 +30,7 @@ angular.module('pefApp').directive('pefElement', function($compile) {
         $compile(elm.contents())(scope);
         break;
       case 'datepicker':
-        elm.append('<div class="well well-small pull-left"><datepicker ng-model="$parent.model" min="minDate" show-weeks="showWeeks" day-format="\"d\""></timepicker></div>');
+        elm.append('<div class="well well-small pull-left"><datepicker ng-model="$parent.model" min="minDate" show-weeks="showWeeks" day-format="\'d\'"></timepicker></div>');
         $compile(elm.contents())(scope);
         break;
       case 'timepicker':

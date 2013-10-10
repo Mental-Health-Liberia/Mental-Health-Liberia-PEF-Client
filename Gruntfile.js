@@ -132,7 +132,8 @@ module.exports = function (grunt) {
         javascriptsDir: '<%= yeoman.app %>/scripts',
         fontsDir: '<%= yeoman.app %>/styles/fonts',
         importPath: '<%= yeoman.app %>/components',
-        relativeAssets: true
+        relativeAssets: false,
+        raw: 'http_images_path=\'../images\'\nhttp_generated_images_path=\'../images\'\n'
       },
       dist: {},
       server: {
@@ -251,11 +252,39 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,txt}',
             '.htaccess',
+            'configuration.json',
             'components/**/*',
             'images/{,*/}*.{gif,webp}',
-            'styles/fonts/*'
+            'styles/fonts/*',
+            'images/{,*/}*.png'
           ]
         }]
+      }
+    },
+    manifest: {
+      generate: {
+        options: {
+          basePath: '<%= yeoman.dist %>/',
+          // cache: ['js/app.js', 'css/style.css'],
+          network: ['*', 'http://*', 'https://*'],
+          // fallback: ['/ /offline.html'],
+          // exclude: ['js/jquery.min.js'],
+          preferOnline: true,
+          verbose: true,
+          timestamp: true,
+          hash: true,
+          master: ['index.html']
+        },
+        src: [
+          '*.html',
+          'components/*/*.js',
+          'views/{,*/}*.html',
+          'scripts/{,*/}*.js',
+          'styles/{,*/}*.css',
+          // 'images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          // 'styles/fonts/*'
+        ],
+        dest: '<%= yeoman.dist %>/manifest.appcache'
       }
     }
   });
@@ -288,15 +317,16 @@ module.exports = function (grunt) {
     'compass:dist',
     'useminPrepare',
     'imagemin',
-    'cssmin',
     'htmlmin',
     'concat',
     'copy',
     'cdnify',
     'ngmin',
+    'cssmin',
     'uglify',
     'rev',
-    'usemin'
+    'usemin',
+    'manifest'
   ]);
 
   grunt.registerTask('default', ['build']);

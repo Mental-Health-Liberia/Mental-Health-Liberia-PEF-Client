@@ -28,7 +28,8 @@
     "karma-ng-html2js-preprocessor": "~0.1.0",
     "karma-ng-scenario": "~0.1.0",
     "karma": "~0.10.2",
-    "karma-jasmine": "~0.1.3"
+    "karma-jasmine": "~0.1.3",
+    "grunt-manifest": "~0.4.0"
   },
   "engines": {
     "node": ">=0.8.0"
