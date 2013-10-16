@@ -14,6 +14,21 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+  var nodemonIgnoredFiles = [
+    'README.md',
+    'Gruntfile.js',
+    'karma.conf.js',
+    'karma-e2e.conf.js',
+    '/.git/',
+    '/node_modules/',
+    '/app/',
+    '/dist/',
+    '/test/',
+    '/temp/',
+    '/.tmp',
+    '/.sass-cache',
+  ];
+
   try {
     yeomanConfig.app = require('./component.json').appPath || yeomanConfig.app;
   } catch (e) {}
@@ -23,24 +38,24 @@ module.exports = function (grunt) {
     watch: {
       coffee: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
-        tasks: ['coffee:dist']
+        tasks: ['coffee:dist'],
+        options: {
+            livereload: true
+        }
       },
       coffeeTest: {
         files: ['test/spec/{,*/}*.coffee'],
-        tasks: ['coffee:test']
+        tasks: ['coffee:test'],
+        options: {
+            livereload: true
+        }
       },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass']
-      },
-      livereload: {
-        files: [
-          '<%= yeoman.app %>/{,*/}*.html',
-          '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
-          '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-        ],
-        tasks: ['livereload']
+        tasks: ['compass'],
+        options: {
+            livereload: true
+        }
       }
     },
     connect: {
@@ -286,19 +301,41 @@ module.exports = function (grunt) {
         ],
         dest: '<%= yeoman.dist %>/manifest.appcache'
       }
-    }
+    },
+    nodemon: {
+      dev: {
+        options: {
+          file: 'server.js',
+          args: ['development'],
+          // nodemon watches the current directory recursively by default
+          // watchedFolders: ['.'],
+          debug: true,
+          delayTime: 1,
+          ignoredFiles: nodemonIgnoredFiles,
+        }
+      }
+    },
+    concurrent: {
+      nodemon: {
+        options: {
+          logConcurrentOutput: true,
+        },
+        tasks: [
+          'nodemon:dev',
+          'watch',
+        ],
+      },
+      server: [
+        'clean:server',
+        'compass:server',
+        'coffee:dist'
+      ]
+    },
   });
 
-  grunt.renameTask('regarde', 'watch');
-
   grunt.registerTask('server', [
-    'clean:server',
-    'coffee:dist',
-    'compass:server',
-    'livereload-start',
-    'connect:livereload',
-    'open',
-    'watch'
+    'concurrent:nodemon',
+    'concurrent:server'
   ]);
 
   grunt.registerTask('test', [
