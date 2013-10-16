@@ -40,21 +40,21 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
         tasks: ['coffee:dist'],
         options: {
-            livereload: true
+          livereload: true
         }
       },
       coffeeTest: {
         files: ['test/spec/{,*/}*.coffee'],
         tasks: ['coffee:test'],
         options: {
-            livereload: true
+          livereload: true
         }
       },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['compass'],
         options: {
-            livereload: true
+          livereload: true
         }
       }
     },
