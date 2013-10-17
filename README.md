@@ -2,7 +2,7 @@
 This project is a part of the Computing for Good class led by [Ellen Zegura](http://www.cc.gatech.edu/~ewz/Welcome.html) at the [Georgia Institute of Technology](http://www.gatech.edu).
 
 ## How to Run
-This project requires that node.js, grunt, ruby, and bower must be installed.
+This project requires that [node.js](http://nodejs.org), [grunt](http://gruntjs.com), [ruby](https://www.ruby-lang.org/en/), and [bower](http://bower.io) must be installed.
 
 You can install grunt and bower by running:
 
