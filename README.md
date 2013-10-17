@@ -25,7 +25,7 @@ $ grunt build
 $ grunt server
 ```
 
-You're done!
+You're done! You can view the site at `0.0.0.0:9000` in your favorite web browser.
 
 ## Group Members
 * Ryan Ashcraft
