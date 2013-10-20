@@ -43,6 +43,8 @@ Once in the machine, the PEF code is in `/vagrant`. Simply build and run the app
 
 You can access the site at `0.0.0.0:4567` in your favorite web browser.
 
+Note: Node.JS, bower, grunt, and other configured with thanks to appleYaks's [example repository](https://github.com/appleYaks/grunt-express-workflow).
+
 ## Group Members
 * Ryan Ashcraft
 * Tanner Smith
