@@ -35,6 +35,8 @@ class do-stuff {
     command => '/usr/bin/make && /usr/bin/make install',
     cwd => '/tmp/node-latest',
     require => [ Exec['configure node'], Package['make'], Package['build-essential'], Package['g++'] ],
+    timeout => 1800,
+    logoutput => 'true'
   }
 
   exec { 'install grunt and bower':
