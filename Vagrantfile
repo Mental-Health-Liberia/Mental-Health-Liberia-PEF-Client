@@ -7,7 +7,6 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "ghost"
   config.ssh.forward_agent = true
 
-#  config.vm.network :private_network, ip: "192.168.99.99"
   config.vm.network :forwarded_port, host:4567, guest: 9000
 
   config.vm.provision :puppet, :module_path => "modules" do |puppet|
