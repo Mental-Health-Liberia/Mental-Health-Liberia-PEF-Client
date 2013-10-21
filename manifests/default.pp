@@ -1,62 +1,81 @@
-class do-stuff {
+class aptupdate {
+    exec { "aptGetUpdate":
+        command => "sudo apt-get update",
+        path => ["/bin", "/usr/bin"]
+    }
+}
+
+class node-js {
   include apt
-
-  exec { 'update':
-    command => '/usr/bin/apt-get update'
+  apt::ppa {
+    'ppa:chris-lea/node.js': notify => Package["nodejs"]
   }
 
-  package { [ 'build-essential', 'git', 'python', 'g++', 'make', 'checkinstall' ]:
-    ensure  => present,
-    require => Exec['update'],
+  package { "nodejs" :
+      ensure => latest,
+      require => [Exec["aptGetUpdate"],Class["apt"]]
   }
 
-  exec { 'get node':
-    command => '/usr/bin/wget -N http://nodejs.org/dist/node-latest.tar.gz',
-    cwd => '/tmp',
+  exec { "npm-update" :
+      cwd => "/vagrant",
+      command => "npm -g update",
+      onlyif => ["test -d /vag rant/node_modules"],
+      path => ["/bin", "/usr/bin"],
+      require => Package['nodejs']
+  }
+}
+
+class mongodb {
+  exec { "10genKeys":
+    command => "sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10",
+    path => ["/bin", "/usr/bin"],
+    notify => Exec["aptGetUpdate"],
+    unless => "apt-key list | grep 10gen"
   }
 
-  file { '/tmp/node-latest':
-    ensure => 'directory'
+  file { "10gen.list":
+    path => "/etc/apt/sources.list.d/10gen.list",
+    ensure => file,
+    content => "deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10gen",
+    notify => Exec["10genKeys"]
   }
 
-  exec { 'decompress node':
-    command => '/bin/tar xzvf node-latest.tar.gz --strip-components 1 -C /tmp/node-latest',
-    cwd => '/tmp',
-    require => [ Exec['get node'], File['/tmp/node-latest'] ]
+  package { "mongodb-10gen":
+    ensure => present,
+    require => [Exec["aptGetUpdate"],File["10gen.list"]]
+  }
+}
+
+class pef-dependencies {
+  exec { 'install grunt':
+    command => '/usr/bin/npm install -g grunt grunt-cli',
+    require => Exec['npm-update'],
   }
 
-  exec { 'configure node':
-    command => '/usr/bin/python configure',
-    cwd => '/tmp/node-latest',
-    require => [ Exec['decompress node'], Package['python'] ],
-  }
-
-  exec { 'make':
-    command => '/usr/bin/make && /usr/bin/make install',
-    cwd => '/tmp/node-latest',
-    require => [ Exec['configure node'], Package['make'], Package['build-essential'], Package['g++'] ],
-    timeout => 1800,
-    logoutput => 'true'
-  }
-
-  exec { 'install grunt and bower':
-    command => '/usr/local/bin/npm install -g grunt-cli bower',
-    require => Exec['make'],
+  exec { 'install bower':
+    command => '/usr/bin/npm install -g bower',
+    require => Exec['npm-update']
   }
 
   exec { 'install nodemon':
-    command => '/usr/local/bin/npm install -g nodemon',
-    require => Exec['make']
+    command => '/usr/bin/npm install -g nodemon',
+    require => Exec['npm-update']
   }
 
   exec { 'install bundle':
     command => '/opt/vagrant_ruby/bin/gem install bundler',
   }
 
-  exec { 'install dependencies':
-    command => '/usr/local/bin/npm install; /usr/local/bin/bower --allow-root install',
+  exec { 'install node dependencies':
+    command => '/usr/bin/npm installl',
     cwd => '/vagrant',
-    require => [ Exec['make'], Exec['install grunt and bower'] ],
+    require => Exec['npm-update']
+  }
+
+  exec { 'install bower dependencies':
+    command => '/usr/bin/bower --allow-root install',
+    cwd => '/vagrant',
+    require => [ Exec['install bower'] ],
   }
 
   exec { 'install required gems':
@@ -66,10 +85,13 @@ class do-stuff {
   }
 
   exec { 'build site':
-    command => '/usr/local/bin/grunt build',
+    command => '/usr/bin/grunt build',
     cwd => '/vagrant',
-    require => Exec['install dependencies'],
+    require => Exec['install grunt'],
   }
 }
 
-include do-stuff
+include aptupdate
+include node-js
+include mongodb
+include pef-dependencies
