@@ -1,4 +1,4 @@
-<form name="form" class="form-horizontal">
+<form name="form" class="form-horizontal" ng-hide="finalizeTabSelected">
   <fieldset ng-repeat="fieldset in selectedTab.fieldsets">
     <legend>{{fieldset.title}}</legend>
     <div class="control-group" ng-repeat="element in fieldset.elements">
@@ -11,4 +11,8 @@
   <div class="form-actions">
   	<button class="btn btn-primary" ng-click="nextButtonClicked()">Next</button>
   </div>
+</form>
+
+<form name="form" class="form-horizontal" ng-show="finalizeTabSelected">
+  Foo
 </form>

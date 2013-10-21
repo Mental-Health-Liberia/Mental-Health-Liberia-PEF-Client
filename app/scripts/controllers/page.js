@@ -2,7 +2,9 @@
 
 angular.module('pefApp')
   .controller('PageCtrl', function ($scope, $rootScope, $config) {
+
     $scope.$on('selectedTabChanged', function (event, selectedTab) {
+      $scope.finalizeTabSelected = false;
       $scope.selectedTab = selectedTab;
     });
 

@@ -17,19 +17,28 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope) 
 
   var getTabs = function (callback) {
     getConfig(function (config) {
-      return callback(config.tabs);
+      var tabs = config.tabs;
+
+      addConfirmAndFinalizeTabs(tabs);
+
+      return callback(tabs);
     });
   };
 
-  var getSelectTab = function (index) {
+  var selectTab = function (index) {
     getTabs(function (tabs) {
       selectedTabIndex = index;
       $rootScope.$broadcast('selectedTabChanged', tabs[selectedTabIndex]);
     });
   };
 
+  var deselectTab = function () {
+    selectedTabIndex = -1;
+    $rootScope.$broadcast('selectedTabChanged', null);
+  };
+
   var nextTab = function() {
-    getSelectTab(selectedTabIndex + 1);
+    selectTab(selectedTabIndex + 1);
   };
 
   var selectedTab = function (callback) {
@@ -42,10 +51,42 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope) 
     return selectedTabIndex;
   };
 
+  var addConfirmAndFinalizeTabs = function (tabs) {
+    tabs.push({
+      title: "Confirm",
+      name: "confirm",
+      fieldsets: [
+        {
+          "title": "Data"
+        }
+      ]
+    });
+
+    tabs.push({
+      title: "Finalize",
+      name: "finalize",
+      fieldsets: [
+        {
+          "title": "Finalize",
+          "elements": [
+            {
+              "name": "submit",
+              "title": "Submit",
+              "type": "button"
+            }
+          ]
+        }
+      ]
+    });
+
+    return tabs;
+  }
+
   return {
     get: getConfig,
     tabs: getTabs,
-    selectTab: getSelectTab,
+    selectTab: selectTab,
+    deselectTab: deselectTab,
     nextTab: nextTab,
 
     selectedTab: selectedTab,
