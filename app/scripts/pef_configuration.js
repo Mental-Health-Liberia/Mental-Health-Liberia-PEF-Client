@@ -53,26 +53,26 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope) 
 
   var addConfirmAndFinalizeTabs = function (tabs) {
     tabs.push({
-      title: "Confirm",
-      name: "confirm",
+      title: 'Confirm',
+      name: 'confirm',
       fieldsets: [
         {
-          "title": "Data"
+          'title': 'Data'
         }
       ]
     });
 
     tabs.push({
-      title: "Finalize",
-      name: "finalize",
+      title: 'Finalize',
+      name: 'finalize',
       fieldsets: [
         {
-          "title": "Finalize",
-          "elements": [
+          'title': 'Finalize',
+          'elements': [
             {
-              "name": "submit",
-              "title": "Submit",
-              "type": "button"
+              'name': 'submit',
+              'title': 'Submit',
+              'type': 'button'
             }
           ]
         }
@@ -80,7 +80,7 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope) 
     });
 
     return tabs;
-  }
+  };
 
   return {
     get: getConfig,
