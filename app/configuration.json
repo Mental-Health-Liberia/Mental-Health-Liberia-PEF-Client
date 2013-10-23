@@ -10,11 +10,7 @@
             {
               "name": "patient_id",
               "title": "Patient ID",
-              "type": "patient_id",
-              "validate": [
-                "number",
-                "required"
-              ]
+              "type": "patient_id"
             },
             {
               "name": "referral_source",
@@ -36,10 +32,10 @@
               "name": "clinician_id",
               "title": "Clinician ID",
               "type": "text",
-              "validate": [
-                "number",
-                "required"
-              ]
+              "rules": {
+                "number": true,
+                "required": true
+              }
             },
             {
               "name": "clinician_training",
@@ -107,19 +103,19 @@
               "name": "age",
               "title": "Age (years)",
               "type": "text",
-              "validate": [
-                "number",
-                "required"
-              ]
+              "rules": {
+                "number": true,
+                "required": true
+              }
             },
             {
               "name": "life_role_days",
               "title": "Number of Days in Life Role",
               "type": "text",
-              "validate": [
-                "number",
-                "required"
-              ]
+              "rules": {
+                "number": true,
+                "required": true
+              }
             }
           ]
         }
