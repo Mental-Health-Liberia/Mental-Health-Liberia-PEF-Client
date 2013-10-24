@@ -6,6 +6,7 @@ angular.module('pefApp').directive('pefElement', function($compile) {
     'text': '<input type="text" ng-model="value" id="{{name}}" name="{{name}}" placeholder="{{placeholder}}">',
     'patient_id': '<div class="input-append"><input type="text" ng-model="value" id="{{name}}" name="{{name}}" placeholder="{{placeholder}}"><button class="btn">Generate</button></div>',
     'radio': '<label class="radio" ng-repeat="option in options"><input type="radio" ng-model="$parent.value" value="{{option}}"> {{option}} </label>',
+    'checkbox': '<label class="check" ng-repeat="option in options"><input type="checkbox" ng-model="$parent.value" value="{{option}}"> {{option}} </label>',
     'datepicker': '<div class="well well-small pull-left"><datepicker ng-model="$parent.value" min="minDate" show-weeks="showWeeks" day-format="\'d\'"></timepicker></div>',
     'timepicker': '<div class="well well-small pull-left" ng-model="$parent.value"><timepicker class="timepicker" show-meridian="true"></timepicker></div>'
   };
