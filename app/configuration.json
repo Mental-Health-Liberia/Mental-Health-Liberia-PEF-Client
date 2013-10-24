@@ -109,10 +109,133 @@
                 "number": true,
                 "required": true
               }
+            },
+            {
+              "name": "distance_travelled_to_clinic",
+              "title": "Distance Travelled to Clinic (kilometers)",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "country_of_residence",
+              "title": "Country of Residence",
+              "type": "select",
+              "options": [
+                "Bomi",
+                "Bong",
+                "Gbarpolo",
+                "Grand Bassa",
+                "Grand Cape Mount",
+                "Grand Gedah",
+                "Grand Kru",
+                "Lofa",
+                "Margibi",
+                "Maryland",
+                "Montserrado",
+                "Nimba",
+                "River Cess",
+                "River Gee",
+                "Sinoe",
+                "Other"
+              ]
+            },
+            {
+              "name": "marital_status",
+              "title": "Marital Status",
+              "type": "select",
+              "options": [
+                "Single / Never Married",
+                "Married",
+                "Divorced",
+                "Windowed",
+                "No Response"
+              ]
+            },
+            {
+              "name": "education",
+              "title": "Education",
+              "type": "select",
+              "options": [
+                "No Formal Education",
+                "Grade / Primary School",
+                "High School",
+                "Some University",
+                "University",
+                "No Response"
+              ]
             }
           ]
         }
       ]
-    }   
+    },
+    {
+      "name": "symptoms_and_functioning",
+      "title": "Symptoms and Functioning",
+      "fieldsets": [
+        {
+          "title": "Test Results",
+          "elements": [
+            {
+              "name": "phq9",
+              "title": "PHQ-9 Score",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "gaf",
+              "title": "GAF Score",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "cage",
+              "title": "CAGE Score",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "who-das",
+              "title": "WHO-DAS Score",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "euroqol",
+              "title": "Euroqol Score",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            }
+          ]
+        },
+        {
+          "title": "Other Results",
+          "elements": [
+            {
+              "name": "other_symptoms",
+              "title": "Other Symptoms",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    }
   ]
 }
