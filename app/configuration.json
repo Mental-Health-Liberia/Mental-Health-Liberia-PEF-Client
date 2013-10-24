@@ -76,7 +76,6 @@
               "name": "reason",
               "title": "Reason for Visit",
               "type": "radio",
-              "value": "seeking",
               "options": [
                 "Seeking Mental Health Care",
                 "Other"

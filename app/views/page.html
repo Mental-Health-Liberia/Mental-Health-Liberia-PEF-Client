@@ -1,4 +1,4 @@
-<form name="form" class="form-horizontal" ng-hide="finalizeTabSelected">
+<form name="form" class="form-horizontal">
   <fieldset ng-repeat="fieldset in selectedTab.fieldsets">
     <legend>{{fieldset.title}}</legend>
     <div class="control-group" ng-class="{error: !element.valid}" ng-repeat="element in fieldset.elements">
@@ -9,11 +9,12 @@
       </div>
     </div>
   </fieldset>
+
+  <div ng-if="selectedTab.templateUrl">
+    <ng-include src="'views/' + selectedTab.templateUrl + '.html'"></ng-include>
+  </div>
+
   <div class="form-actions">
   	<button class="btn btn-primary" ng-click="nextButtonClicked()">Next</button>
   </div>
-</form>
-
-<form name="form" class="form-horizontal" ng-show="finalizeTabSelected">
-  Foo
 </form>

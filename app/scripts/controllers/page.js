@@ -42,6 +42,10 @@ angular.module('pefApp')
 
       if (tabValid) {
         $config.nextTab();
+
+        $config.tabs(function (tabs) {
+          $scope.tabs = tabs;
+        });
       } else {
         window.alert(tabInvalidMessages.join('\n'));
       }

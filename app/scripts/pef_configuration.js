@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pefApp').service('$config', function factory($http, $rootScope) {
+angular.module('pefApp').service('$config', function factory($http, $rootScope, $state) {
   var configuration = null;
   var selectedTabIndex = 0;
 
@@ -55,33 +55,13 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope) 
     tabs.push({
       title: 'Confirm',
       name: 'confirm',
-      fieldsets: [
-        {
-          'title': 'Confirm Entered Information',
-          'elements': [
-            {
-              'type': 'confirmation'
-            }
-          ]
-        }
-      ]
+      templateUrl: 'confirm'
     });
 
     tabs.push({
       title: 'Finalize',
       name: 'finalize',
-      fieldsets: [
-        {
-          'title': 'Finalize',
-          'elements': [
-            {
-              'name': 'submit',
-              'title': 'Submit',
-              'type': 'button'
-            }
-          ]
-        }
-      ]
+      templateUrl: 'finalize'
     });
 
     return tabs;

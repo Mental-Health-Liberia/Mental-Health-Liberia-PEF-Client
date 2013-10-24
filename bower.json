@@ -2,7 +2,7 @@
   "name": "pef",
   "version": "0.0.0",
   "dependencies": {
-    "angular": "PatternConsulting/bower-angular#1.1.x",
+    "angular": "=1.2.0-rc.3",
     "json3": "~3.2.4",
     "es5-shim": "~2.0.8",
     "angular-resource": "~1.0.5",
@@ -17,6 +17,7 @@
     "lodash": "~2.0.0"
   },
   "resolutions": {
-    "angular": "1.1.x"
+    "angular": "=1.2.0-rc.3",
+    "angular-ui-bootstrap": "~0.6.0"
   }
 }
