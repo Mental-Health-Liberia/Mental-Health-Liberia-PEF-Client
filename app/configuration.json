@@ -409,6 +409,132 @@
           ]
         }
       ]
+    },
+    {
+      "name": "treatment",
+      "title": "Treatment",
+      "fieldsets": [
+        {
+          "title": "Medication",
+          "elements": [
+            {
+              "name": "anti_depressent",
+              "title": "Anti-Depressent",
+              "type": "checkbox",
+              "options": [
+                "Fluoxetine",
+                "Escitalopram",
+                "Sertraline",
+                "Amitriptyline",
+                "Imipramine",
+                "Other"
+              ]
+            },
+            {
+              "name": "anti_psychotic",
+              "title": "Anti-Psychotic",
+              "type": "checkbox",
+              "options": [
+                "Haloperidal",
+                "Haloperidal Decanoate Injection",
+                "Chlorpromazine",
+                "Fluphenazine",
+                "Fluphenazine Decanoate Injection",
+                "Risperidone",
+                "Risperidone Consta Injection",
+                "Other"
+              ]
+            },
+            {
+              "name": "sedative_hypnotic",
+              "title": "Sedative or Hypnotic",
+              "type": "checkbox",
+              "options": [
+                "Clomipramine",
+                "Clonazepam",
+                "Diazepam",
+                "Lorazepam",
+                "Other"
+              ]
+            },
+            {
+              "name": "mood_stabilizer",
+              "title": "Mood Stabilizer",
+              "type": "checkbox",
+              "options": [
+                "Depakote (Valproic Acid)",
+                "Lithium",
+                "Carbamazepine",
+                "Other"
+              ]
+            },
+            {
+              "name": "anti_epileptic",
+              "title": "Anti-Epileptic",
+              "type": "checkbox",
+              "options": [
+                "Depakote (Valproic Acid)",
+                "Carbamazepine",
+                "Phenobarbital",
+                "Phenytoin",
+                "Other"
+              ]
+            },
+            {
+              "name": "anti_cholinergic",
+              "title": "Anti-Cholinergic",
+              "type": "checkbox",
+              "options": [
+                "Trihexyphenidyl",
+                "Other"
+              ]
+            },
+            {
+              "name": "unavailable_medications",
+              "title": "Medications Not Available",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "title": "Counseling",
+          "elements": [
+            {
+              "name": "counseling",
+              "title": "Counseling",
+              "type": "checkbox",
+              "options": [
+                "Individual Counseling",
+                "Group Counseling",
+                "Family Psycho-Educational",
+                "Family Therapy",
+                "None"
+              ]
+            },
+            {
+              "name": "individual_counseling",
+              "title": "Individual Counseling",
+              "type": "checkbox",
+              "options": [
+                "CBT",
+                "DBT",
+                "Motivational Interviewing",
+                "None"
+              ]
+            },
+            {
+              "name": "family_psycho_education",
+              "title": "Family Psycho-Education",
+              "type": "checkbox",
+              "options": [
+                "Support Group",
+                "Other",
+                "None"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
