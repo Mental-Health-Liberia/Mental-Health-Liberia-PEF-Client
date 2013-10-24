@@ -535,6 +535,62 @@
           ]
         }
       ]
+    },
+    {
+      "name": "discharge",
+      "title": "Discharge",
+      "fieldsets": [
+        {
+          "title": "Followup Care",
+          "elements": [
+            {
+              "name": "medications",
+              "title": "Medications",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "name": "counseling",
+              "title": "Counseling",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Other",
+          "elements": [
+            {
+              "name": "permission_report",
+              "title": "Permission to Report Data",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "name": "discharge_disposition",
+              "title": "Discharge Disposition (Location)",
+              "type": "checkbox",
+              "options": [
+                "Home",
+                "Hospital",
+                "Psychiatric Facility",
+                "Prison",
+                "Other",
+                "None"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
