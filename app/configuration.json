@@ -177,6 +177,72 @@
           ]
         }
       ]
-    }   
+    },
+    {
+      "name": "symptoms_and_functioning",
+      "title": "Symptoms and Functioning",
+      "fieldsets": [
+        {
+          "title": "Test Results",
+          "elements": [
+            {
+              "name": "phq9",
+              "title": "PHQ-9 Score",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "gaf",
+              "title": "GAF Score",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "cage",
+              "title": "CAGE Score",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "who-das",
+              "title": "WHO-DAS Score",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "euroqol",
+              "title": "Euroqol Score",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            }
+          ]
+        },
+        {
+          "title": "Other Results",
+          "elements": [
+            {
+              "name": "other_symptoms",
+              "title": "Other Symptoms",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    }
   ]
 }
