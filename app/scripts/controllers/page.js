@@ -18,6 +18,10 @@ angular.module('pefApp')
     };
 
     $scope.$on('selectedTabChanged', function (event, selectedTab) {
+      $config.tabs(function (tabs) {
+        $scope.tabs = tabs;
+      });
+
       $scope.finalizeTabSelected = false;
       $scope.selectedTab = selectedTab;
     });
@@ -42,10 +46,6 @@ angular.module('pefApp')
 
       if (tabValid) {
         $config.nextTab();
-
-        $config.tabs(function (tabs) {
-          $scope.tabs = tabs;
-        });
       } else {
         window.alert(tabInvalidMessages.join('\n'));
       }
