@@ -282,18 +282,18 @@
               "title": "Anxiety",
               "type": "select",
               "options": [
-                "Generalized anxiety disorder",
-                "Panic disorder with agoraphobia",
-                "Panic disorder without agoraphobia",
-                "Agoraphobia without history of panic disorder",
-                "Specific phobia",
-                "Social phobia",
-                "Obsessive compulsive disorder",
-                "Post-traumatic stress disorder",
-                "Acute stress",
-                "Anxiety disorder due to general medical condition",
-                "Anxiety disorder due to specific medical condition",
-                "Anxiety disoder due to NOS",
+                "Generalized Anxiety Disorder",
+                "Panic Disorder with Agoraphobia",
+                "Panic Disorder without Agoraphobia",
+                "Agoraphobia without History of Panic Disorder",
+                "Specific Phobia",
+                "Social Phobia",
+                "Obsessive Compulsive Disorder",
+                "Post-traumatic Stress Disorder",
+                "Acute Stress",
+                "Anxiety Disorder due to General Medical Condition",
+                "Anxiety Disorder due to Specific Medical Condition",
+                "Anxiety Disoder due to NOS",
                 "None"
               ]
             },
@@ -302,15 +302,15 @@
               "title": "Psychotic",
               "type": "select",
               "options": [
-                "Schizophrenia catatonic type",
-                "Schizophrenia disorganized type",
-                "Schizophrenia paranoid type",
-                "Schizophrenia residual type",
-                "Schizophrenia undifferentiated type",
-                "Schizoaffective disorder",
-                "Psychotic disorder due to medical condition with delusions",
-                "Psychotic disorder due to medical condition with hallucinations",
-                "Psychotic disorder NOS",
+                "Schizophrenia Catatonic Type",
+                "Schizophrenia Disorganized Type",
+                "Schizophrenia Paranoid Type",
+                "Schizophrenia Residual Type",
+                "Schizophrenia Undifferentiated Type",
+                "Schizoaffectiv Disorder",
+                "Psychotic Disorder due to Medical Condition with Delusions",
+                "Psychotic Disorder due to Medical Condition with Hallucinations",
+                "Psychotic Disorder NOS",
                 "None"
               ]
             },
@@ -319,14 +319,14 @@
               "title": "Somatoform",
               "type": "select",
               "options": [
-                "Somatization disorder",
-                "Undifferentiated somatoform disorder",
-                "Conversion disorder",
-                "Pain disorder with both psychological factors and general medical condition",
-                "Pain disorder with psychological factors",
+                "Somatization Disorder",
+                "Undifferentiated Somatoform Disorder",
+                "Conversion Disorder",
+                "Pain Disorder with Both Psychological Factors and General Medical Condition",
+                "Pain Disorder with Psychological Factors",
                 "Hypochondriasis",
-                "Body dysmorphic disorder",
-                "Somatoform disorder NOS",
+                "Body Dysmorphic Disorder",
+                "Somatoform Disorder NOS",
                 "None"
               ]
             }
@@ -340,12 +340,12 @@
               "title": "First Level",
               "type": "select",
               "options": [
-                "Alcohol-related disorder",
+                "Alcohol-Related Disorder",
                 "Cannabis",
                 "Cocaine",
-                "Nicotine dependence",
+                "Nicotine Dependence",
                 "Opioid",
-                "Sedative-, hypnotic-, or anxiolytic",
+                "Sedative-, Hypnotic-, or Anxiolytic",
                 "None"
               ]
             },
@@ -354,9 +354,9 @@
               "title": "Second Level",
               "type": "select",
               "options": [
-                "-induced mood disorder",
-                "-induced psychotic disorder with delusions",
-                "-induced psychotic disorder with hallucinations",
+                "Induced Mood Disorder",
+                "Induced Psychotic Disorder with Delusions",
+                "Induced Psychotic Disorder with Hallucinations",
                 "Intoxication",
                 "Withdrawal",
                 "None"
@@ -372,9 +372,9 @@
               "title": "Seizure",
               "type": "select",
               "options": [
-                "With grand mal seizure",
-                "With petit mal seizure",
-                "Without seizure",
+                "With Grand Mal Seizure",
+                "With Petit Mal Seizure",
+                "Without Seizure",
                 "None"
               ]
             },
