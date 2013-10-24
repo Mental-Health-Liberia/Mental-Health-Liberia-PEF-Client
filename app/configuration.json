@@ -236,6 +236,179 @@
           ]
         }
       ]
+    },
+    {
+      "name": "diagnosis",
+      "title": "Diagnosis",
+      "fieldsets": [
+        {
+          "title": "Mood Disorder",
+          "elements": [
+            {
+              "name": "primary",
+              "title": "Primary",
+              "type": "select",
+              "options": [
+                "Major Depressive Disorder (Recurrent)",
+                "Bipolar Disorder - Most Recent Episode Depressed",
+                "Bipolar Disorder - Most Recent Episode Manic",
+                "Bipolar Disorder - Most Recent Episode Mixed",
+                "Mood Disorder NOS",
+                "Mood Disorder due to Medical Condition",
+                "None"
+              ]
+            },
+            {
+              "name": "secondary",
+              "title": "Secondary",
+              "type": "select",
+              "options": [
+                "Full Remission",
+                "Partial Remission",
+                "Mild",
+                "Moderate",
+                "Severe without Psychotic Features",
+                "Severe with Psychotic Features",
+                "None"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Other Disorders",
+          "elements": [
+            {
+              "name": "anxiety",
+              "title": "Anxiety",
+              "type": "select",
+              "options": [
+                "Generalized anxiety disorder",
+                "Panic disorder with agoraphobia",
+                "Panic disorder without agoraphobia",
+                "Agoraphobia without history of panic disorder",
+                "Specific phobia",
+                "Social phobia",
+                "Obsessive compulsive disorder",
+                "Post-traumatic stress disorder",
+                "Acute stress",
+                "Anxiety disorder due to general medical condition",
+                "Anxiety disorder due to specific medical condition",
+                "Anxiety disoder due to NOS",
+                "None"
+              ]
+            },
+            {
+              "name": "psychotic",
+              "title": "Psychotic",
+              "type": "select",
+              "options": [
+                "Schizophrenia catatonic type",
+                "Schizophrenia disorganized type",
+                "Schizophrenia paranoid type",
+                "Schizophrenia residual type",
+                "Schizophrenia undifferentiated type",
+                "Schizoaffective disorder",
+                "Psychotic disorder due to medical condition with delusions",
+                "Psychotic disorder due to medical condition with hallucinations",
+                "Psychotic disorder NOS",
+                "None"
+              ]
+            },
+            {
+              "name": "somatoform",
+              "title": "Somatoform",
+              "type": "select",
+              "options": [
+                "Somatization disorder",
+                "Undifferentiated somatoform disorder",
+                "Conversion disorder",
+                "Pain disorder with both psychological factors and general medical condition",
+                "Pain disorder with psychological factors",
+                "Hypochondriasis",
+                "Body dysmorphic disorder",
+                "Somatoform disorder NOS",
+                "None"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Substance Abuse",
+          "elements": [
+            {
+              "name": "first_level",
+              "title": "First Level",
+              "type": "select",
+              "options": [
+                "Alcohol-related disorder",
+                "Cannabis",
+                "Cocaine",
+                "Nicotine dependence",
+                "Opioid",
+                "Sedative-, hypnotic-, or anxiolytic",
+                "None"
+              ]
+            },
+            {
+              "name": "second_level",
+              "title": "Second Level",
+              "type": "select",
+              "options": [
+                "-induced mood disorder",
+                "-induced psychotic disorder with delusions",
+                "-induced psychotic disorder with hallucinations",
+                "Intoxication",
+                "Withdrawal",
+                "None"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Epilepsy",
+          "elements": [
+            {
+              "name": "seizure",
+              "title": "Seizure",
+              "type": "select",
+              "options": [
+                "With grand mal seizure",
+                "With petit mal seizure",
+                "Without seizure",
+                "None"
+              ]
+            },
+            {
+              "name": "epilepsy_symptoms",
+              "title": "Other Epilepsy Symptoms",
+              "type": "text"
+            },
+            {
+              "name": "seizure_count",
+              "title": "Number of Seizures per Month",
+              "type": "text",
+              "rules": {
+                "number": true
+              }
+            }
+          ]
+        },
+        {
+          "title": "Other",
+          "elements": [
+            {
+              "name": "other_conditions",
+              "title": "Other Medical Conditions",
+              "type": "text"
+            },
+            {
+              "name": "secondary_tertiary_diagnosis",
+              "title": "Secondary / Tertiary Diagnosis",
+              "type": "text"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
