@@ -51,6 +51,10 @@ angular.module('pefApp')
       }
     };
 
+    $scope.submitButtonClicked = function () {
+      console.log("TO BE IMPLEMENTED");
+    };
+
     $scope.validate = function (element, strict) {
       var value = element.value;
 

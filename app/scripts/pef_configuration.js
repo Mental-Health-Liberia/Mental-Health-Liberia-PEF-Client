@@ -18,9 +18,7 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
   var getTabs = function (callback) {
     getConfig(function (config) {
       var tabs = config.tabs;
-
-      addConfirmAndFinalizeTabs(tabs);
-
+      addConfirmTab(tabs);
       return callback(tabs);
     });
   };
@@ -51,17 +49,11 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
     return selectedTabIndex;
   };
 
-  var addConfirmAndFinalizeTabs = function (tabs) {
+  var addConfirmTab = function (tabs) {
     tabs.push({
       title: 'Confirm',
       name: 'confirm',
       templateUrl: 'confirm'
-    });
-
-    tabs.push({
-      title: 'Finalize',
-      name: 'finalize',
-      templateUrl: 'finalize'
     });
 
     return tabs;

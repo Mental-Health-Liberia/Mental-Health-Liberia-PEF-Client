@@ -1,20 +1,22 @@
 <form name="form" class="form-horizontal">
-  <fieldset ng-repeat="fieldset in selectedTab.fieldsets">
-    <legend>{{fieldset.title}}</legend>
-    <div class="control-group" ng-class="{error: !element.valid}" ng-repeat="element in fieldset.elements">
-      <label class="control-label" for="{{element.name}}">{{element.title}}</label>
-      <div class="controls">
-        <pef-element value="element.value" type="element.type" name="element.name" options="element.options" placeholder="element.placeholder" rules="element.rules" valid="element.valid" invalid-message="element.invalidMessage" validate="validate">
-        <span class="help-inline" ng-show="!valid">This field {{invalidMessage}}.</span>
+  <div ng-if="!selectedTab.templateUrl">
+    <fieldset ng-repeat="fieldset in selectedTab.fieldsets">
+      <legend>{{fieldset.title}}</legend>
+      <div class="control-group" ng-class="{error: !element.valid}" ng-repeat="element in fieldset.elements">
+        <label class="control-label" for="{{element.name}}">{{element.title}}</label>
+        <div class="controls">
+          <pef-element value="element.value" type="element.type" name="element.name" options="element.options" placeholder="element.placeholder" rules="element.rules" valid="element.valid" invalid-message="element.invalidMessage" validate="validate">
+          <span class="help-inline" ng-show="!valid">This field {{invalidMessage}}.</span>
+        </div>
       </div>
+    </fieldset>
+
+    <div class="form-actions">
+      <button class="btn btn-primary" ng-click="nextButtonClicked()">Next</button>
     </div>
-  </fieldset>
+  </div>
 
   <div ng-if="selectedTab.templateUrl">
     <ng-include src="'views/' + selectedTab.templateUrl + '.html'"></ng-include>
-  </div>
-
-  <div class="form-actions">
-  	<button class="btn btn-primary" ng-click="nextButtonClicked()">Next</button>
   </div>
 </form>
