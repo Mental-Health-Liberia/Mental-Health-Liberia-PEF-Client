@@ -78,14 +78,8 @@
               "type": "radio",
               "value": "seeking",
               "options": [
-                {
-                  "title": "Seeking Mental Health Care",
-                  "name": "seeking"
-                },
-                {
-                  "title": "Other",
-                  "name": "other"
-                }
+                "Seeking Mental Health Care",
+                "Other"
               ]
             }
           ]

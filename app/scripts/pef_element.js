@@ -1,6 +1,15 @@
 'use strict';
 
 angular.module('pefApp').directive('pefElement', function($compile) {
+  var TYPE_TO_MARKUP = {
+    'select': '<select ng-model="value" id="{{name}}" name="{{name}}" ng-options="option for option in options"></select>',
+    'text': '<input type="text" ng-model="value" id="{{name}}" name="{{name}}" placeholder="{{placeholder}}">',
+    'patient_id': '<div class="input-append"><input type="text" ng-model="value" id="{{name}}" name="{{name}}" placeholder="{{placeholder}}"><button class="btn">Generate</button></div>',
+    'radio': '<label class="radio" ng-repeat="option in options"><input type="radio" ng-model="$parent.value" value="{{option}}"> {{option}} </label>',
+    'datepicker': '<div class="well well-small pull-left"><datepicker ng-model="$parent.value" min="minDate" show-weeks="showWeeks" day-format="\'d\'"></timepicker></div>',
+    'timepicker': '<div class="well well-small pull-left"><timepicker class="timepicker" ng-model="value" show-meridian="true"></timepicker></div>'
+  };
+
   return {
     restrict: 'E',
     scope: {
@@ -21,28 +30,12 @@ angular.module('pefApp').directive('pefElement', function($compile) {
         scope.validate(scope);
       });
 
-      switch (scope.type) {
-      case 'select':
-        // Initially set value to first option
-        scope.value = scope.options[0];
+      if (_.has(TYPE_TO_MARKUP, scope.type)) {
+        elm.prepend(TYPE_TO_MARKUP[scope.type]);
+      }
 
-        elm.prepend('<select ng-model="value" id="{{name}}" name="{{name}}" ng-options="option for option in options"></select>');
-        break;
-      case 'text':
-        elm.prepend('<input type="text" ng-model="value" id="{{name}}" name="{{name}}" placeholder="{{placeholder}}">');
-        break;
-      case 'patient_id':
-        elm.prepend('<div class="input-append"><input type="text" ng-model="value" id="{{name}}" name="{{name}}" placeholder="{{placeholder}}"><button class="btn">Generate</button></div>');
-        break;
-      case 'radio':
-        elm.prepend('<label class="radio" ng-repeat="option in options"><input type="radio" ng-model="$parent.value" value="{{option.name}}"> {{option.title}} </label>');
-        break;
-      case 'datepicker':
-        elm.prepend('<div class="well well-small pull-left"><datepicker ng-model="$parent.value" min="minDate" show-weeks="showWeeks" day-format="\'d\'"></timepicker></div>');
-        break;
-      case 'timepicker':
-        elm.prepend('<div class="well well-small pull-left"><timepicker class="timepicker" ng-model="value" show-meridian="true"></timepicker></div>');
-        break;
+      if (scope.options) {
+        scope.value = scope.options[0];
       }
 
       $compile(elm.contents())(scope);

@@ -57,7 +57,12 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope) 
       name: 'confirm',
       fieldsets: [
         {
-          'title': 'Data'
+          'title': 'Confirm Entered Information',
+          'elements': [
+            {
+              'type': 'confirmation'
+            }
+          ]
         }
       ]
     });
