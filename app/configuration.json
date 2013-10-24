@@ -116,6 +116,63 @@
                 "number": true,
                 "required": true
               }
+            },
+            {
+              "name": "distance_travelled_to_clinic",
+              "title": "Distance Travelled to Clinic (kilometers)",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "country_of_residence",
+              "title": "Country of Residence",
+              "type": "select",
+              "options": [
+                "Bomi",
+                "Bong",
+                "Gbarpolo",
+                "Grand Bassa",
+                "Grand Cape Mount",
+                "Grand Gedah",
+                "Grand Kru",
+                "Lofa",
+                "Margibi",
+                "Maryland",
+                "Montserrado",
+                "Nimba",
+                "River Cess",
+                "River Gee",
+                "Sinoe",
+                "Other"
+              ]
+            },
+            {
+              "name": "marital_status",
+              "title": "Marital Status",
+              "type": "select",
+              "options": [
+                "Single / Never Married",
+                "Married",
+                "Divorced",
+                "Windowed",
+                "No Response"
+              ]
+            },
+            {
+              "name": "education",
+              "title": "Education",
+              "type": "select",
+              "options": [
+                "No Formal Education",
+                "Grade / Primary School",
+                "High School",
+                "Some University",
+                "University",
+                "No Response"
+              ]
             }
           ]
         }
