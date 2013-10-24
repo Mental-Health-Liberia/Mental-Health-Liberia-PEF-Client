@@ -24,9 +24,14 @@
       <script src="components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <div class="container">
-      <ng-include src="'views/navbar.html'"></ng-include>
-      <div ui-view></div>
+    <ng-include src="'views/navbar.html'"></ng-include>
+
+    <div class="container" id="wrapper">
+      <div class="row">
+        <div class="span12">
+          <div ui-view></div>
+        </div>
+      </div>
     </div>
 
     <script src="components/lodash/dist/lodash.min.js"></script>

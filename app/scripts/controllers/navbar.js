@@ -9,7 +9,8 @@ angular.module('pefApp')
         return {
           title: tab.title,
           slug: tab.name,
-          selected: ($config.selectedTabIndex() === _.indexOf(tabs, tab)),
+          selected: (_.indexOf(tabs, tab) === $config.selectedTabIndex()),
+          disabled: (_.indexOf(tabs, tab) > $scope.maxValidTabIndex)
         };
       });
     });
@@ -26,4 +27,6 @@ angular.module('pefApp')
     $scope.tabSelected = function (index) {
       $config.selectTab(index);
     };
+
+    $config.selectTab(0);
   });

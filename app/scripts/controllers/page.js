@@ -24,6 +24,8 @@ angular.module('pefApp')
 
       $scope.finalizeTabSelected = false;
       $scope.selectedTab = selectedTab;
+
+      window.scrollTo(0, 0);
     });
 
     $scope.nextButtonClicked = function () {
@@ -52,7 +54,7 @@ angular.module('pefApp')
     };
 
     $scope.submitButtonClicked = function () {
-      console.log("TO BE IMPLEMENTED");
+      alert("Success");
     };
 
     $scope.validate = function (element, strict) {
