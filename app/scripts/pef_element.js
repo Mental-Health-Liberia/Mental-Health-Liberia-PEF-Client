@@ -41,10 +41,16 @@ angular.module('pefApp').directive('pefElement', function($compile) {
       template: '<label class="checkbox" ng-repeat="option in options"><input type="checkbox" name="{{name}}[]" ng-checked="isChecked(option)" ng-click="check(option)"> {{option}} </label>',
     },
     'datepicker': {
+      init: function (scope) {
+        scope.value = Date.now();
+      },
       template: '<div class="well well-small pull-left"><datepicker ng-model="$parent.value" min="minDate" show-weeks="showWeeks" day-format="\'d\'"></timepicker></div>',
     },
     'timepicker': {
-      template: '<div class="well well-small pull-left" ng-model="$parent.value"><timepicker class="timepicker" show-meridian="true"></timepicker></div>'
+      init: function (scope) {
+        scope.value = Date.now();
+      },
+      template: '<div class="well well-small pull-left" ng-model="value"><timepicker class="timepicker" show-meridian="true"></timepicker></div>'
     }
   };
 

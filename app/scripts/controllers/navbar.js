@@ -24,6 +24,10 @@ angular.module('pefApp')
       });
     });
 
+    $rootScope.$on('reset', function () {
+      $scope.maxValidTabIndex = 0;
+    });
+
     $scope.tabSelected = function (index) {
       $config.selectTab(index);
     };

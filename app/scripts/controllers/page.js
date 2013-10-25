@@ -56,7 +56,7 @@ angular.module('pefApp')
     $scope.submitButtonClicked = function () {
       alert("Success");
       $config.submit(function () {
-        $config.reset();
+        $rootScope.$broadcast('reset');
         $config.selectTab(0);
       });
     };

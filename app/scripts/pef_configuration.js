@@ -89,16 +89,16 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
   var submit = function (callback) {
     // TODO
     formKeyValuePairs(function (pairs) {
-      console.log("Attempting to submit:", pairs);
+      console.log('Attempting to submit:', pairs);
     });
 
     callback();
   };
 
-  var reset = function () {
+  $rootScope.$on('reset', function () {
     configuration = null;
     tabs = null;
-  };
+  });
 
   return {
     get: getConfig,
@@ -110,7 +110,6 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
     selectedTab: selectedTab,
     selectedTabIndex: getSelectedTabIndex,
 
-    submit: submit,
-    reset: reset
+    submit: submit
   };
 });
