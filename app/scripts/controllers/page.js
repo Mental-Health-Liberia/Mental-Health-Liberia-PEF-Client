@@ -55,6 +55,10 @@ angular.module('pefApp')
 
     $scope.submitButtonClicked = function () {
       alert("Success");
+      $config.submit(function () {
+        $config.reset();
+        $config.selectTab(0);
+      });
     };
 
     $scope.validate = function (element, strict) {

@@ -2,6 +2,7 @@
 
 angular.module('pefApp').service('$config', function factory($http, $rootScope, $state) {
   var configuration = null;
+  var tabs = null;
   var selectedTabIndex = 0;
 
   var getConfig = function (callback) {
@@ -16,8 +17,12 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
   };
 
   var getTabs = function (callback) {
+    if (tabs !== null) {
+      return callback(tabs);
+    }
+
     getConfig(function (config) {
-      var tabs = config.tabs;
+      tabs = config.tabs;
       addConfirmTab(tabs);
       return callback(tabs);
     });
@@ -59,6 +64,42 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
     return tabs;
   };
 
+  var formKeyValuePairs = function (callback) {
+    var pairs = {};
+
+    getTabs(function (tabs) {
+      for (var t in tabs) {
+        var tab = tabs[t];
+
+        for (var f in tab.fieldsets) {
+          var fieldset = tab.fieldsets[f];
+
+          for (var e in fieldset.elements) {
+            var element = fieldset.elements[e];
+
+            pairs[element.name] = element.value;
+          }
+        }
+      }
+
+      callback(pairs);
+    });
+  };
+
+  var submit = function (callback) {
+    // TODO
+    formKeyValuePairs(function (pairs) {
+      console.log("Attempting to submit:", pairs);
+    });
+
+    callback();
+  };
+
+  var reset = function () {
+    configuration = null;
+    tabs = null;
+  };
+
   return {
     get: getConfig,
     tabs: getTabs,
@@ -67,6 +108,9 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
     nextTab: nextTab,
 
     selectedTab: selectedTab,
-    selectedTabIndex: getSelectedTabIndex
+    selectedTabIndex: getSelectedTabIndex,
+
+    submit: submit,
+    reset: reset
   };
 });
