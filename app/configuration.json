@@ -500,26 +500,13 @@
           "title": "Counseling",
           "elements": [
             {
-              "name": "counseling",
-              "title": "Counseling",
-              "type": "checkbox",
-              "options": [
-                "Individual Counseling",
-                "Group Counseling",
-                "Family Psycho-Educational",
-                "Family Therapy",
-                "None"
-              ]
-            },
-            {
               "name": "individual_counseling",
               "title": "Individual Counseling",
               "type": "checkbox",
               "options": [
                 "CBT",
                 "DBT",
-                "Motivational Interviewing",
-                "None"
+                "Motivational Interviewing"
               ]
             },
             {
@@ -528,8 +515,16 @@
               "type": "checkbox",
               "options": [
                 "Support Group",
-                "Other",
-                "None"
+                "Other"
+              ]
+            },
+            {
+              "name": "counseling_other",
+              "title": "Other Counseling",
+              "type": "checkbox",
+              "options": [
+                "Group Counseling",
+                "Family Therapy"
               ]
             }
           ]
