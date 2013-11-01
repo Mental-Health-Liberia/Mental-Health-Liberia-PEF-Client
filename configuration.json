@@ -1,0 +1,591 @@
+{
+  "tabs": [
+    {
+      "name": "basic",
+      "title": "Basic Configuration",
+      "fieldsets": [
+        {
+          "title": "Patient",
+          "elements": [
+            {
+              "name": "patient_id",
+              "title": "Patient ID",
+              "type": "patient_id"
+            },
+            {
+              "name": "referral_source",
+              "title": "Referral Source",
+              "type": "select",
+              "options": [
+                "Clinician",
+                "Messages",
+                "Other",
+                "No response"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Clinician",
+          "elements": [
+            {
+              "name": "clinician_id",
+              "title": "Clinician ID",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "clinician_training",
+              "title": "Clinician Training Level",
+              "type": "select",
+              "options": [
+                "No formal training",
+                "Community health worker training",
+                "Physician's assistant training",
+                "General clinician training",
+                "Psychchiatric clinician training",
+                "Other",
+                "No response"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Visit",
+          "elements": [
+            {
+              "name": "service_location",
+              "title": "Location of Service",
+              "type": "text",
+              "placeholder": "Clinic or Hospital Name"
+            },
+            {
+              "name": "date",
+              "title": "Date of Service",
+              "type": "datepicker"
+            },
+            {
+              "name": "time",
+              "title": "Time of Service",
+              "type": "timepicker"
+            },
+            {
+              "name": "reason",
+              "title": "Reason for Visit",
+              "type": "radio",
+              "options": [
+                "Seeking Mental Health Care",
+                "Other"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "demographics",
+      "title": "Demographics",
+      "fieldsets": [
+        {
+          "title": "Patient",
+          "elements": [
+            {
+              "name": "age",
+              "title": "Age (years)",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "life_role_days",
+              "title": "Number of Days in Life Role",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "distance_travelled_to_clinic",
+              "title": "Distance Travelled to Clinic (kilometers)",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "country_of_residence",
+              "title": "Country of Residence",
+              "type": "select",
+              "options": [
+                "Bomi",
+                "Bong",
+                "Gbarpolo",
+                "Grand Bassa",
+                "Grand Cape Mount",
+                "Grand Gedah",
+                "Grand Kru",
+                "Lofa",
+                "Margibi",
+                "Maryland",
+                "Montserrado",
+                "Nimba",
+                "River Cess",
+                "River Gee",
+                "Sinoe",
+                "Other"
+              ]
+            },
+            {
+              "name": "marital_status",
+              "title": "Marital Status",
+              "type": "select",
+              "options": [
+                "Single / Never Married",
+                "Married",
+                "Divorced",
+                "Windowed",
+                "No Response"
+              ]
+            },
+            {
+              "name": "education",
+              "title": "Education",
+              "type": "select",
+              "options": [
+                "No Formal Education",
+                "Grade / Primary School",
+                "High School",
+                "Some University",
+                "University",
+                "No Response"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "symptoms_and_functioning",
+      "title": "Symptoms and Functioning",
+      "fieldsets": [
+        {
+          "title": "Test Results",
+          "elements": [
+            {
+              "name": "phq9",
+              "title": "PHQ-9 Score",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "gaf",
+              "title": "GAF Score",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "cage",
+              "title": "CAGE Score",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "who-das",
+              "title": "WHO-DAS Score",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            },
+            {
+              "name": "euroqol",
+              "title": "Euroqol Score",
+              "type": "text",
+              "rules": {
+                "number": true,
+                "required": true
+              }
+            }
+          ]
+        },
+        {
+          "title": "Other Results",
+          "elements": [
+            {
+              "name": "other_symptoms",
+              "title": "Other Symptoms",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "diagnosis",
+      "title": "Diagnosis",
+      "fieldsets": [
+        {
+          "title": "Mood Disorder",
+          "elements": [
+            {
+              "name": "primary",
+              "title": "Primary",
+              "type": "select",
+              "options": [
+                "Major Depressive Disorder (Recurrent)",
+                "Bipolar Disorder - Most Recent Episode Depressed",
+                "Bipolar Disorder - Most Recent Episode Manic",
+                "Bipolar Disorder - Most Recent Episode Mixed",
+                "Mood Disorder NOS",
+                "Mood Disorder due to Medical Condition",
+                "None"
+              ]
+            },
+            {
+              "name": "secondary",
+              "title": "Secondary",
+              "type": "select",
+              "options": [
+                "Full Remission",
+                "Partial Remission",
+                "Mild",
+                "Moderate",
+                "Severe without Psychotic Features",
+                "Severe with Psychotic Features",
+                "None"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Other Disorders",
+          "elements": [
+            {
+              "name": "anxiety",
+              "title": "Anxiety",
+              "type": "select",
+              "options": [
+                "Generalized Anxiety Disorder",
+                "Panic Disorder with Agoraphobia",
+                "Panic Disorder without Agoraphobia",
+                "Agoraphobia without History of Panic Disorder",
+                "Specific Phobia",
+                "Social Phobia",
+                "Obsessive Compulsive Disorder",
+                "Post-traumatic Stress Disorder",
+                "Acute Stress",
+                "Anxiety Disorder due to General Medical Condition",
+                "Anxiety Disorder due to Specific Medical Condition",
+                "Anxiety Disoder due to NOS",
+                "None"
+              ]
+            },
+            {
+              "name": "psychotic",
+              "title": "Psychotic",
+              "type": "select",
+              "options": [
+                "Schizophrenia Catatonic Type",
+                "Schizophrenia Disorganized Type",
+                "Schizophrenia Paranoid Type",
+                "Schizophrenia Residual Type",
+                "Schizophrenia Undifferentiated Type",
+                "Schizoaffectiv Disorder",
+                "Psychotic Disorder due to Medical Condition with Delusions",
+                "Psychotic Disorder due to Medical Condition with Hallucinations",
+                "Psychotic Disorder NOS",
+                "None"
+              ]
+            },
+            {
+              "name": "somatoform",
+              "title": "Somatoform",
+              "type": "select",
+              "options": [
+                "Somatization Disorder",
+                "Undifferentiated Somatoform Disorder",
+                "Conversion Disorder",
+                "Pain Disorder with Both Psychological Factors and General Medical Condition",
+                "Pain Disorder with Psychological Factors",
+                "Hypochondriasis",
+                "Body Dysmorphic Disorder",
+                "Somatoform Disorder NOS",
+                "None"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Substance Abuse",
+          "elements": [
+            {
+              "name": "first_level",
+              "title": "First Level",
+              "type": "select",
+              "options": [
+                "Alcohol-Related Disorder",
+                "Cannabis",
+                "Cocaine",
+                "Nicotine Dependence",
+                "Opioid",
+                "Sedative-, Hypnotic-, or Anxiolytic",
+                "None"
+              ]
+            },
+            {
+              "name": "second_level",
+              "title": "Second Level",
+              "type": "select",
+              "options": [
+                "Induced Mood Disorder",
+                "Induced Psychotic Disorder with Delusions",
+                "Induced Psychotic Disorder with Hallucinations",
+                "Intoxication",
+                "Withdrawal",
+                "None"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Epilepsy",
+          "elements": [
+            {
+              "name": "seizure",
+              "title": "Seizure",
+              "type": "select",
+              "options": [
+                "With Grand Mal Seizure",
+                "With Petit Mal Seizure",
+                "Without Seizure",
+                "None"
+              ]
+            },
+            {
+              "name": "epilepsy_symptoms",
+              "title": "Other Epilepsy Symptoms",
+              "type": "text"
+            },
+            {
+              "name": "seizure_count",
+              "title": "Number of Seizures per Month",
+              "type": "text",
+              "rules": {
+                "number": true
+              }
+            }
+          ]
+        },
+        {
+          "title": "Other",
+          "elements": [
+            {
+              "name": "other_conditions",
+              "title": "Other Medical Conditions",
+              "type": "text"
+            },
+            {
+              "name": "secondary_tertiary_diagnosis",
+              "title": "Secondary / Tertiary Diagnosis",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "treatment",
+      "title": "Treatment",
+      "fieldsets": [
+        {
+          "title": "Medication",
+          "elements": [
+            {
+              "name": "anti_depressent",
+              "title": "Anti-Depressent",
+              "type": "checkbox",
+              "options": [
+                "Fluoxetine",
+                "Escitalopram",
+                "Sertraline",
+                "Amitriptyline",
+                "Imipramine",
+                "Other"
+              ]
+            },
+            {
+              "name": "anti_psychotic",
+              "title": "Anti-Psychotic",
+              "type": "checkbox",
+              "options": [
+                "Haloperidal",
+                "Haloperidal Decanoate Injection",
+                "Chlorpromazine",
+                "Fluphenazine",
+                "Fluphenazine Decanoate Injection",
+                "Risperidone",
+                "Risperidone Consta Injection",
+                "Other"
+              ]
+            },
+            {
+              "name": "sedative_hypnotic",
+              "title": "Sedative or Hypnotic",
+              "type": "checkbox",
+              "options": [
+                "Clomipramine",
+                "Clonazepam",
+                "Diazepam",
+                "Lorazepam",
+                "Other"
+              ]
+            },
+            {
+              "name": "mood_stabilizer",
+              "title": "Mood Stabilizer",
+              "type": "checkbox",
+              "options": [
+                "Depakote (Valproic Acid)",
+                "Lithium",
+                "Carbamazepine",
+                "Other"
+              ]
+            },
+            {
+              "name": "anti_epileptic",
+              "title": "Anti-Epileptic",
+              "type": "checkbox",
+              "options": [
+                "Depakote (Valproic Acid)",
+                "Carbamazepine",
+                "Phenobarbital",
+                "Phenytoin",
+                "Other"
+              ]
+            },
+            {
+              "name": "anti_cholinergic",
+              "title": "Anti-Cholinergic",
+              "type": "checkbox",
+              "options": [
+                "Trihexyphenidyl",
+                "Other"
+              ]
+            },
+            {
+              "name": "unavailable_medications",
+              "title": "Medications Not Available",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "title": "Counseling",
+          "elements": [
+            {
+              "name": "individual_counseling",
+              "title": "Individual Counseling",
+              "type": "checkbox",
+              "options": [
+                "CBT",
+                "DBT",
+                "Motivational Interviewing"
+              ]
+            },
+            {
+              "name": "family_psycho_education",
+              "title": "Family Psycho-Education",
+              "type": "checkbox",
+              "options": [
+                "Support Group",
+                "Other"
+              ]
+            },
+            {
+              "name": "counseling_other",
+              "title": "Other Counseling",
+              "type": "checkbox",
+              "options": [
+                "Group Counseling",
+                "Family Therapy"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "discharge",
+      "title": "Discharge",
+      "fieldsets": [
+        {
+          "title": "Followup Care",
+          "elements": [
+            {
+              "name": "medications",
+              "title": "Medications",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "name": "counseling",
+              "title": "Counseling",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Other",
+          "elements": [
+            {
+              "name": "permission_report",
+              "title": "Permission to Report Data",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "name": "discharge_disposition",
+              "title": "Discharge Disposition (Location)",
+              "type": "checkbox",
+              "options": [
+                "Home",
+                "Hospital",
+                "Psychiatric Facility",
+                "Prison",
+                "Other",
+                "None"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

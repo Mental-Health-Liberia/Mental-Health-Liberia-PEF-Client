@@ -1,0 +1,11 @@
+<div class="navbar navbar-static-top" ng-controller="NavbarCtrl">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav">
+        <li ng-repeat="tab in tabs" ng-class="{active: tab.selected}">
+          <button ng-click="tabSelected($index)" ng-disabled="tab.disabled">{{tab.title}}</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div ng-repeat="tab in tabs">
+  <fieldset ng-repeat="fieldset in tab.fieldsets">
+    <legend>{{fieldset.title}}</legend>
+    <div class="control-group" ng-repeat="element in fieldset.elements">
+      <label class="control-label" for="{{element.name}}">{{element.title}}</label>
+      <div class="controls">
+        <p ng-if="element.type !== 'checkbox'">{{element.value}}</p>
+        <p ng-if="element.type === 'checkbox'">{{element.value.join(", ")}}</p>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="form-actions">
+  <button class="btn btn-primary btn-large" ng-click="submitButtonClicked()">Submit Form</button>
+</div>
