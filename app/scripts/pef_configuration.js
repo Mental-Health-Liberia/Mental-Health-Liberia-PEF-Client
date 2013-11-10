@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pefApp').service('$config', function factory($http, $rootScope, $state) {
+angular.module('pefApp').service('$config', function factory($http, $rootScope) {
   var configuration = null;
   var tabs = null;
   var selectedTabIndex = 0;

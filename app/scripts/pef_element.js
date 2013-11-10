@@ -33,10 +33,12 @@ angular.module('pefApp').directive('pefElement', function($compile) {
         };
 
         scope.check = function (option) {
-          if (!_.indexOf(scope.value, option) !== -1) {
+          if (scope.isChecked(option)) {
             scope.value.push(option);
+          } else {
+            _.pull(scope.value, option);
           }
-        }
+        };
       },
       template: '<label class="checkbox" ng-repeat="option in options"><input type="checkbox" name="{{name}}[]" ng-checked="isChecked(option)" ng-click="check(option)"> {{option}} </label>',
     },
@@ -70,7 +72,7 @@ angular.module('pefApp').directive('pefElement', function($compile) {
     link: function(scope, elm) {
       scope.valid = true;
 
-      scope.$watch('value', function (newValue) {
+      scope.$watch('value', function () {
         scope.validate(scope);
       });
 
