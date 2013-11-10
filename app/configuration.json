@@ -63,17 +63,17 @@
               "placeholder": "Clinic or Hospital Name"
             },
             {
-              "name": "date",
+              "name": "date_of_service",
               "title": "Date of Service",
               "type": "datepicker"
             },
             {
-              "name": "time",
+              "name": "time_of_service",
               "title": "Time of Service",
               "type": "timepicker"
             },
             {
-              "name": "reason",
+              "name": "reason_for_visit",
               "title": "Reason for Visit",
               "type": "radio",
               "options": [
@@ -155,7 +155,7 @@
               ]
             },
             {
-              "name": "education",
+              "name": "education_type",
               "title": "Education",
               "type": "select",
               "options": [
@@ -179,7 +179,7 @@
           "title": "Test Results",
           "elements": [
             {
-              "name": "phq9",
+              "name": "phq9_score",
               "title": "PHQ-9 Score",
               "type": "text",
               "rules": {
@@ -188,7 +188,7 @@
               }
             },
             {
-              "name": "gaf",
+              "name": "gaf_score",
               "title": "GAF Score",
               "type": "text",
               "rules": {
@@ -197,7 +197,7 @@
               }
             },
             {
-              "name": "cage",
+              "name": "cage_score",
               "title": "CAGE Score",
               "type": "text",
               "rules": {
@@ -206,7 +206,7 @@
               }
             },
             {
-              "name": "who-das",
+              "name": "who-das_score",
               "title": "WHO-DAS Score",
               "type": "text",
               "rules": {
@@ -215,7 +215,7 @@
               }
             },
             {
-              "name": "euroqol",
+              "name": "euroqol_score",
               "title": "Euroqol Score",
               "type": "text",
               "rules": {
@@ -245,7 +245,7 @@
           "title": "Mood Disorder",
           "elements": [
             {
-              "name": "primary",
+              "name": "mood_disorder_primary_diagnosis",
               "title": "Primary",
               "type": "select",
               "options": [
@@ -259,7 +259,7 @@
               ]
             },
             {
-              "name": "secondary",
+              "name": "mood_disorder_secondary_diagnosis",
               "title": "Secondary",
               "type": "select",
               "options": [
@@ -278,7 +278,7 @@
           "title": "Other Disorders",
           "elements": [
             {
-              "name": "anxiety",
+              "name": "anxiety_diagnosis",
               "title": "Anxiety",
               "type": "select",
               "options": [
@@ -298,7 +298,7 @@
               ]
             },
             {
-              "name": "psychotic",
+              "name": "psychotic_diagnosis",
               "title": "Psychotic",
               "type": "select",
               "options": [
@@ -315,7 +315,7 @@
               ]
             },
             {
-              "name": "somatoform",
+              "name": "somatoform_diagnosis",
               "title": "Somatoform",
               "type": "select",
               "options": [
@@ -336,7 +336,7 @@
           "title": "Substance Abuse",
           "elements": [
             {
-              "name": "first_level",
+              "name": "first_level_substance_abuse",
               "title": "First Level",
               "type": "select",
               "options": [
@@ -350,7 +350,7 @@
               ]
             },
             {
-              "name": "second_level",
+              "name": "second_level_substance_abuse",
               "title": "Second Level",
               "type": "select",
               "options": [
@@ -368,7 +368,7 @@
           "title": "Epilepsy",
           "elements": [
             {
-              "name": "seizure",
+              "name": "epilepsy_seizure",
               "title": "Seizure",
               "type": "select",
               "options": [
@@ -384,7 +384,7 @@
               "type": "text"
             },
             {
-              "name": "seizure_count",
+              "name": "epilepsy_seizure_count",
               "title": "Number of Seizures per Month",
               "type": "text",
               "rules": {
@@ -418,8 +418,8 @@
           "title": "Medication",
           "elements": [
             {
-              "name": "anti_depressent",
-              "title": "Anti-Depressent",
+              "name": "anti_depressant",
+              "title": "Anti-Depressant",
               "type": "checkbox",
               "options": [
                 "Fluoxetine",
@@ -510,7 +510,7 @@
               ]
             },
             {
-              "name": "family_psycho_education",
+              "name": "family_psycho_education_counseling",
               "title": "Family Psycho-Education",
               "type": "checkbox",
               "options": [
@@ -539,7 +539,7 @@
           "title": "Followup Care",
           "elements": [
             {
-              "name": "medications",
+              "name": "followup_medications",
               "title": "Medications",
               "type": "radio",
               "options": [
@@ -548,7 +548,7 @@
               ]
             },
             {
-              "name": "counseling",
+              "name": "followup_counseling",
               "title": "Counseling",
               "type": "radio",
               "options": [
@@ -562,7 +562,7 @@
           "title": "Other",
           "elements": [
             {
-              "name": "permission_report",
+              "name": "permission_to_report",
               "title": "Permission to Report Data",
               "type": "radio",
               "options": [
@@ -571,7 +571,7 @@
               ]
             },
             {
-              "name": "discharge_disposition",
+              "name": "discharge_location",
               "title": "Discharge Disposition (Location)",
               "type": "checkbox",
               "options": [
