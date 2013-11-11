@@ -1,67 +1,42 @@
 'use strict';
 
 angular.module('pefApp').service('$config', function factory($http, $rootScope, $form) {
-  var configuration = null;
-  var tabs = null;
-  var selectedTabIndex = 0;
-
   var getConfig = function (callback) {
-    if (configuration !== null) {
-      return callback(configuration);
+    if (window.pefConfig !== null) {
+      return callback(window.pefConfig);
     }
-
-    $http.get('configuration.json').success(function(data) {
-      configuration = data;
-      return callback(data);
-    });
   };
 
   var getTabs = function (callback) {
-    if (tabs !== null) {
-      return callback(tabs);
+    if (window.pefTabs !== null) {
+      return callback(window.pefTabs);
     }
-
-    getConfig(function (config) {
-      tabs = config.tabs;
-      addConfirmTab(tabs);
-      return callback(tabs);
-    });
   };
 
   var selectTab = function (index) {
     getTabs(function (tabs) {
-      selectedTabIndex = index;
-      $rootScope.$broadcast('selectedTabChanged', tabs[selectedTabIndex]);
+      window.pefSelectedTabIndex = index;
+      $rootScope.$broadcast('selectedTabChanged', tabs[window.pefSelectedTabIndex]);
     });
   };
 
   var deselectTab = function () {
-    selectedTabIndex = -1;
+    window.pefSelectedTabIndex = -1;
     $rootScope.$broadcast('selectedTabChanged', null);
   };
 
   var nextTab = function() {
-    selectTab(selectedTabIndex + 1);
+    selectTab(window.pefSelectedTabIndex + 1);
   };
 
   var selectedTab = function (callback) {
     getTabs(function (tabs) {
-      return callback(tabs[selectedTabIndex]);
+      return callback(tabs[window.pefSelectedTabIndex]);
     });
   };
 
   var getSelectedTabIndex = function () {
-    return selectedTabIndex;
-  };
-
-  var addConfirmTab = function (tabs) {
-    tabs.push({
-      title: 'Confirm',
-      name: 'confirm',
-      templateUrl: 'confirm'
-    });
-
-    return tabs;
+    return window.pefSelectedTabIndex;
   };
 
   var formKeyValuePairs = function (callback) {
@@ -95,8 +70,18 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
   };
 
   $rootScope.$on('reset', function () {
-    configuration = null;
-    tabs = null;
+    $http.get('configuration.json').success(function(data) {
+      window.pefConfig = data;
+      window.pefTabs = window.pefConfig.tabs;
+
+      window.pefTabs.push({
+        title: 'Confirm',
+        name: 'confirm',
+        templateUrl: 'confirm'
+      });
+
+      selectTab(0);
+    });
   });
 
   return {

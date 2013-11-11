@@ -4,8 +4,11 @@
     <div class="control-group" ng-repeat="element in fieldset.elements">
       <label class="control-label" for="{{element.name}}">{{element.title}}</label>
       <div class="controls">
-        <p ng-if="element.type !== 'checkbox' && element.value">{{element.value}}</p>
-        <p ng-if="element.type === 'checkbox' && element.value.length > 0">{{element.value.join(", ")}}</p>
+        <p ng-switch="element.type">
+          <span ng-switch-when="datepicker">{{formatDate(element.value)}}</span>
+          <span ng-switch-when="checkbox">{{element.value.join(", ")}}</span>
+          <span ng-switch-default>{{element.value}}</span>
+        </p>
       </div>
     </div>
   </fieldset>

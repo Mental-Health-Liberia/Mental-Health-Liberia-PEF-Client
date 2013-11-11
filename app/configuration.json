@@ -42,13 +42,13 @@
               "title": "Clinician Training Level",
               "type": "select",
               "options": [
+                "No response",
                 "No formal training",
                 "Community health worker training",
                 "Physician's assistant training",
                 "General clinician training",
                 "Psychiatric clinician training",
-                "Other",
-                "No response"
+                "Other"
               ]
             }
           ]
@@ -66,11 +66,6 @@
               "name": "date_of_service",
               "title": "Date of Service",
               "type": "datepicker"
-            },
-            {
-              "name": "time_of_service",
-              "title": "Time of Service",
-              "type": "timepicker"
             },
             {
               "name": "reason_for_visit",
@@ -124,6 +119,7 @@
               "title": "County of Residence",
               "type": "select",
               "options": [
+                "No Response",
                 "Bomi",
                 "Bong",
                 "Gbarpolo",
@@ -159,12 +155,12 @@
               "title": "Education",
               "type": "select",
               "options": [
+                "No Response",
                 "No Formal Education",
                 "Grade / Primary School",
                 "High School",
                 "Some University",
-                "University",
-                "No Response"
+                "University"
               ]
             }
           ]
@@ -183,8 +179,7 @@
               "title": "PHQ-9 Score",
               "type": "text",
               "rules": {
-                "number": true,
-                "required": true
+                "number": true
               }
             },
             {
@@ -192,8 +187,7 @@
               "title": "GAF Score",
               "type": "text",
               "rules": {
-                "number": true,
-                "required": true
+                "number": true
               }
             },
             {
@@ -201,8 +195,7 @@
               "title": "CAGE Score",
               "type": "text",
               "rules": {
-                "number": true,
-                "required": true
+                "number": true
               }
             },
             {
@@ -210,8 +203,7 @@
               "title": "WHO-DAS Score",
               "type": "text",
               "rules": {
-                "number": true,
-                "required": true
+                "number": true
               }
             },
             {
@@ -219,11 +211,13 @@
               "title": "Euroqol Score",
               "type": "text",
               "rules": {
-                "number": true,
-                "required": true
+                "number": true
               }
             }
-          ]
+          ],
+          "rules": {
+            "one_required": true
+          }
         },
         {
           "title": "Other Results",
@@ -246,7 +240,7 @@
           "elements": [
             {
               "name": "mood_disorder_primary_diagnosis",
-              "title": "Primary",
+              "title": "Primary Type",
               "type": "select",
               "options": [
                 "None",
@@ -260,7 +254,7 @@
             },
             {
               "name": "mood_disorder_secondary_diagnosis",
-              "title": "Secondary",
+              "title": "Secondary Type",
               "type": "select",
               "options": [
                 "None",
@@ -275,11 +269,11 @@
           ]
         },
         {
-          "title": "Other Disorders",
+          "title": "Anxiety Disorder",
           "elements": [
             {
               "name": "anxiety_diagnosis",
-              "title": "Anxiety",
+              "title": "Type",
               "type": "select",
               "options": [
                 "None",
@@ -296,10 +290,15 @@
                 "Anxiety Disorder due to Specific Medical Condition",
                 "Anxiety Disoder due to NOS"
               ]
-            },
+            }
+          ]
+        },
+        { 
+          "title": "Psychotic Disorder",
+          "elements": [
             {
               "name": "psychotic_diagnosis",
-              "title": "Psychotic",
+              "title": "Type",
               "type": "select",
               "options": [
                 "None",
@@ -313,10 +312,15 @@
                 "Psychotic Disorder due to Medical Condition with Hallucinations",
                 "Psychotic Disorder NOS"
               ]
-            },
+            }
+          ]
+        },
+        {          
+          "title": "Somatoform",
+          "elements": [
             {
               "name": "somatoform_diagnosis",
-              "title": "Somatoform",
+              "title": "Type",
               "type": "select",
               "options": [
                 "None",
