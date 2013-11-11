@@ -183,8 +183,7 @@
               "title": "PHQ-9 Score",
               "type": "text",
               "rules": {
-                "number": true,
-                "required": true
+                "number": true
               }
             },
             {
@@ -192,8 +191,7 @@
               "title": "GAF Score",
               "type": "text",
               "rules": {
-                "number": true,
-                "required": true
+                "number": true
               }
             },
             {
@@ -201,8 +199,7 @@
               "title": "CAGE Score",
               "type": "text",
               "rules": {
-                "number": true,
-                "required": true
+                "number": true
               }
             },
             {
@@ -210,8 +207,7 @@
               "title": "WHO-DAS Score",
               "type": "text",
               "rules": {
-                "number": true,
-                "required": true
+                "number": true
               }
             },
             {
@@ -219,11 +215,13 @@
               "title": "Euroqol Score",
               "type": "text",
               "rules": {
-                "number": true,
-                "required": true
+                "number": true
               }
             }
-          ]
+          ],
+          "rules": {
+            "one_required": true
+          }
         },
         {
           "title": "Other Results",

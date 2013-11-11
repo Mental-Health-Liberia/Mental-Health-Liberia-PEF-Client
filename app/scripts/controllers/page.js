@@ -2,7 +2,18 @@
 
 angular.module('pefApp')
   .controller('PageCtrl', function ($scope, $rootScope, $config, $modal) {
-    var VALIDATE_TESTS = {
+    var FIELDSET_VALIDATE_TESTS = {
+      'one_required': {
+        test: function (models) {
+          return models.some(function (model) {
+            return model !== undefined && model !== null && model.length > 0;
+          });
+        },
+        message: 'must have at least one completed field'
+      }
+    };
+
+    var ELEMENT_VALIDATE_TESTS = {
       'number': {
         test: function (model) {
           return (model === undefined) || /^[0-9]*$/.test(model);
@@ -29,24 +40,15 @@ angular.module('pefApp')
     });
 
     $scope.nextButtonClicked = function () {
-      var tabValid = true;
-      var tabInvalidMessages = [];
+      var invalidMessages = [];
 
       for (var f in $scope.selectedTab.fieldsets) {
         var fieldset = $scope.selectedTab.fieldsets[f];
-
-        for (var e in fieldset.elements) {
-          var element = fieldset.elements[e];
-
-          if (!$scope.validate(element, true)) {
-            tabInvalidMessages.push(element.title + ' ' + element.invalidMessage + '.');
-
-            tabValid = false;
-          }
-        }
+        var fieldsetInvalidMessages = $scope.validateFieldset(fieldset, true);
+        invalidMessages = invalidMessages.concat(fieldsetInvalidMessages);
       }
 
-      if (tabValid) {
+      if (invalidMessages.length == 0) {
         $config.nextTab();
       } else {
         $modal.open({
@@ -60,7 +62,7 @@ angular.module('pefApp')
               return ['<p><strong>Please fix the following errors before continuing:</strong></p>',
               '<ul>',
               '<li>',
-              tabInvalidMessages.join('</li><li>'),
+              invalidMessages.join('</li><li>'),
               '</li>',
               '</ul>'].join('');
             }
@@ -91,13 +93,44 @@ angular.module('pefApp')
       });
     };
 
+    $scope.validateFieldset = function (fieldset, strict) {
+      var invalidMessages = [];
+
+      for (var e in fieldset.elements) {
+        var element = fieldset.elements[e];
+
+        if (!$scope.validate(element, true)) {
+          invalidMessages.push(element.title + ' ' + element.invalidMessage + '.');
+        }
+      }
+
+      if (strict || value !== undefined) {
+        if (fieldset.rules) {
+          for (var rule in fieldset.rules) {
+            var test = FIELDSET_VALIDATE_TESTS[rule];
+
+            if (test) {
+              var values = fieldset.elements.map(function (element) { return element.value; });
+              var result = test.test(values);
+
+              if (!result) {
+                invalidMessages.push(fieldset.title + ' ' + test.message + '.');
+              }
+            }
+          }
+        }
+      }
+
+      return invalidMessages;
+    };
+
     $scope.validate = function (element, strict) {
       var value = element.value;
 
       if (strict || value !== undefined) {
         if (element.rules) {
           for (var rule in element.rules) {
-            var test = VALIDATE_TESTS[rule];
+            var test = ELEMENT_VALIDATE_TESTS[rule];
 
             if (test) {
               var result = test.test(value);
