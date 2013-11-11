@@ -4,18 +4,20 @@
   </div>
 
   <div class="modal-body">
+    <div class="alert alert-error" ng-show="failureMessage">{{failureMessage}}</div>
+
     <form class="form-horizontal">
       <div class="control-group">
         <label class="control-label" for="username">Username</label>
         <div class="controls">
-          <input type="text" name="username">
+          <input type="text" id="username" name="username" ng-model="$parent.username">
         </div>
       </div>
 
       <div class="control-group">
         <label class="control-label" for="password">Password</label>
         <div class="controls">
-          <input type="password" name="password">
+          <input type="password" id="password" name="password" ng-model="$parent.password">
         </div>
       </div>
   </div>

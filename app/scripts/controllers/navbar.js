@@ -47,7 +47,7 @@ angular.module('pefApp')
             controller: 'LoginModalCtrl',
             resolve: {
               header: function() {
-                return 'Login to Upload Forms';
+                return 'Log In to Upload Forms';
               },
               content: function() {
                 return '';
