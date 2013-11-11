@@ -120,8 +120,8 @@
               }
             },
             {
-              "name": "country_of_residence",
-              "title": "Country of Residence",
+              "name": "county_of_residence",
+              "title": "County of Residence",
               "type": "select",
               "options": [
                 "Bomi",
