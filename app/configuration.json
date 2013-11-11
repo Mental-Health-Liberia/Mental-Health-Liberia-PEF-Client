@@ -240,7 +240,7 @@
           "elements": [
             {
               "name": "mood_disorder_primary_diagnosis",
-              "title": "Primary",
+              "title": "Primary Type",
               "type": "select",
               "options": [
                 "None",
@@ -254,7 +254,7 @@
             },
             {
               "name": "mood_disorder_secondary_diagnosis",
-              "title": "Secondary",
+              "title": "Secondary Type",
               "type": "select",
               "options": [
                 "None",
@@ -269,11 +269,11 @@
           ]
         },
         {
-          "title": "Other Disorders",
+          "title": "Anxiety Disorder",
           "elements": [
             {
               "name": "anxiety_diagnosis",
-              "title": "Anxiety",
+              "title": "Type",
               "type": "select",
               "options": [
                 "None",
@@ -290,10 +290,15 @@
                 "Anxiety Disorder due to Specific Medical Condition",
                 "Anxiety Disoder due to NOS"
               ]
-            },
+            }
+          ]
+        },
+        { 
+          "title": "Psychotic Disorder",
+          "elements": [
             {
               "name": "psychotic_diagnosis",
-              "title": "Psychotic",
+              "title": "Type",
               "type": "select",
               "options": [
                 "None",
@@ -307,10 +312,15 @@
                 "Psychotic Disorder due to Medical Condition with Hallucinations",
                 "Psychotic Disorder NOS"
               ]
-            },
+            }
+          ]
+        },
+        {          
+          "title": "Somatoform",
+          "elements": [
             {
               "name": "somatoform_diagnosis",
-              "title": "Somatoform",
+              "title": "Type",
               "type": "select",
               "options": [
                 "None",
