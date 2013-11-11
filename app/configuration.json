@@ -68,11 +68,6 @@
               "type": "datepicker"
             },
             {
-              "name": "time_of_service",
-              "title": "Time of Service",
-              "type": "timepicker"
-            },
-            {
               "name": "reason_for_visit",
               "title": "Reason for Visit",
               "type": "radio",

@@ -33,11 +33,12 @@ angular.module('pefApp')
         $scope.tabs = tabs;
       });
 
-      $scope.finalizeTabSelected = false;
       $scope.selectedTab = selectedTab;
 
       window.scrollTo(0, 0);
     });
+
+    $config.selectTab(0);
 
     $scope.nextButtonClicked = function () {
       var invalidMessages = [];
@@ -154,5 +155,9 @@ angular.module('pefApp')
       element.invalidMessage = null;
 
       return true;
+    };
+
+    $scope.formatDate = function (value) {
+      return moment(value).format('MMMM Do YYYY');
     };
   });
