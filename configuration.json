@@ -17,10 +17,10 @@
               "title": "Referral Source",
               "type": "select",
               "options": [
+                "No response",
                 "Clinician",
                 "Messages",
-                "Other",
-                "No response"
+                "Other"
               ]
             }
           ]
@@ -46,7 +46,7 @@
                 "Community health worker training",
                 "Physician's assistant training",
                 "General clinician training",
-                "Psychchiatric clinician training",
+                "Psychiatric clinician training",
                 "Other",
                 "No response"
               ]
@@ -63,17 +63,17 @@
               "placeholder": "Clinic or Hospital Name"
             },
             {
-              "name": "date",
+              "name": "date_of_service",
               "title": "Date of Service",
               "type": "datepicker"
             },
             {
-              "name": "time",
+              "name": "time_of_service",
               "title": "Time of Service",
               "type": "timepicker"
             },
             {
-              "name": "reason",
+              "name": "reason_for_visit",
               "title": "Reason for Visit",
               "type": "radio",
               "options": [
@@ -147,15 +147,15 @@
               "title": "Marital Status",
               "type": "select",
               "options": [
+                "No Response",
                 "Single / Never Married",
                 "Married",
                 "Divorced",
-                "Windowed",
-                "No Response"
+                "Widowed"
               ]
             },
             {
-              "name": "education",
+              "name": "education_type",
               "title": "Education",
               "type": "select",
               "options": [
@@ -179,51 +179,49 @@
           "title": "Test Results",
           "elements": [
             {
-              "name": "phq9",
+              "name": "phq9_score",
               "title": "PHQ-9 Score",
               "type": "text",
               "rules": {
-                "number": true,
-                "required": true
+                "number": true
               }
             },
             {
-              "name": "gaf",
+              "name": "gaf_score",
               "title": "GAF Score",
               "type": "text",
               "rules": {
-                "number": true,
-                "required": true
+                "number": true
               }
             },
             {
-              "name": "cage",
+              "name": "cage_score",
               "title": "CAGE Score",
               "type": "text",
               "rules": {
-                "number": true,
-                "required": true
+                "number": true
               }
             },
             {
-              "name": "who-das",
+              "name": "who-das_score",
               "title": "WHO-DAS Score",
               "type": "text",
               "rules": {
-                "number": true,
-                "required": true
+                "number": true
               }
             },
             {
-              "name": "euroqol",
+              "name": "euroqol_score",
               "title": "Euroqol Score",
               "type": "text",
               "rules": {
-                "number": true,
-                "required": true
+                "number": true
               }
             }
-          ]
+          ],
+          "rules": {
+            "one_required": true
+          }
         },
         {
           "title": "Other Results",
@@ -245,31 +243,31 @@
           "title": "Mood Disorder",
           "elements": [
             {
-              "name": "primary",
+              "name": "mood_disorder_primary_diagnosis",
               "title": "Primary",
               "type": "select",
               "options": [
+                "None",
                 "Major Depressive Disorder (Recurrent)",
                 "Bipolar Disorder - Most Recent Episode Depressed",
                 "Bipolar Disorder - Most Recent Episode Manic",
                 "Bipolar Disorder - Most Recent Episode Mixed",
                 "Mood Disorder NOS",
-                "Mood Disorder due to Medical Condition",
-                "None"
+                "Mood Disorder due to Medical Condition"
               ]
             },
             {
-              "name": "secondary",
+              "name": "mood_disorder_secondary_diagnosis",
               "title": "Secondary",
               "type": "select",
               "options": [
+                "None",
                 "Full Remission",
                 "Partial Remission",
                 "Mild",
                 "Moderate",
                 "Severe without Psychotic Features",
-                "Severe with Psychotic Features",
-                "None"
+                "Severe with Psychotic Features"
               ]
             }
           ]
@@ -278,10 +276,11 @@
           "title": "Other Disorders",
           "elements": [
             {
-              "name": "anxiety",
+              "name": "anxiety_diagnosis",
               "title": "Anxiety",
               "type": "select",
               "options": [
+                "None",
                 "Generalized Anxiety Disorder",
                 "Panic Disorder with Agoraphobia",
                 "Panic Disorder without Agoraphobia",
@@ -293,15 +292,15 @@
                 "Acute Stress",
                 "Anxiety Disorder due to General Medical Condition",
                 "Anxiety Disorder due to Specific Medical Condition",
-                "Anxiety Disoder due to NOS",
-                "None"
+                "Anxiety Disoder due to NOS"
               ]
             },
             {
-              "name": "psychotic",
+              "name": "psychotic_diagnosis",
               "title": "Psychotic",
               "type": "select",
               "options": [
+                "None",
                 "Schizophrenia Catatonic Type",
                 "Schizophrenia Disorganized Type",
                 "Schizophrenia Paranoid Type",
@@ -310,15 +309,15 @@
                 "Schizoaffectiv Disorder",
                 "Psychotic Disorder due to Medical Condition with Delusions",
                 "Psychotic Disorder due to Medical Condition with Hallucinations",
-                "Psychotic Disorder NOS",
-                "None"
+                "Psychotic Disorder NOS"
               ]
             },
             {
-              "name": "somatoform",
+              "name": "somatoform_diagnosis",
               "title": "Somatoform",
               "type": "select",
               "options": [
+                "None",
                 "Somatization Disorder",
                 "Undifferentiated Somatoform Disorder",
                 "Conversion Disorder",
@@ -326,8 +325,7 @@
                 "Pain Disorder with Psychological Factors",
                 "Hypochondriasis",
                 "Body Dysmorphic Disorder",
-                "Somatoform Disorder NOS",
-                "None"
+                "Somatoform Disorder NOS"
               ]
             }
           ]
@@ -336,30 +334,30 @@
           "title": "Substance Abuse",
           "elements": [
             {
-              "name": "first_level",
+              "name": "first_level_substance_abuse",
               "title": "First Level",
               "type": "select",
               "options": [
+                "None",
                 "Alcohol-Related Disorder",
                 "Cannabis",
                 "Cocaine",
                 "Nicotine Dependence",
                 "Opioid",
-                "Sedative-, Hypnotic-, or Anxiolytic",
-                "None"
+                "Sedative-, Hypnotic-, or Anxiolytic"
               ]
             },
             {
-              "name": "second_level",
+              "name": "second_level_substance_abuse",
               "title": "Second Level",
               "type": "select",
               "options": [
+                "None",
                 "Induced Mood Disorder",
                 "Induced Psychotic Disorder with Delusions",
                 "Induced Psychotic Disorder with Hallucinations",
                 "Intoxication",
-                "Withdrawal",
-                "None"
+                "Withdrawal"
               ]
             }
           ]
@@ -368,14 +366,14 @@
           "title": "Epilepsy",
           "elements": [
             {
-              "name": "seizure",
+              "name": "epilepsy_seizure",
               "title": "Seizure",
               "type": "select",
               "options": [
+                "None",
                 "With Grand Mal Seizure",
                 "With Petit Mal Seizure",
-                "Without Seizure",
-                "None"
+                "Without Seizure"
               ]
             },
             {
@@ -384,7 +382,7 @@
               "type": "text"
             },
             {
-              "name": "seizure_count",
+              "name": "epilepsy_seizure_count",
               "title": "Number of Seizures per Month",
               "type": "text",
               "rules": {
@@ -418,8 +416,8 @@
           "title": "Medication",
           "elements": [
             {
-              "name": "anti_depressent",
-              "title": "Anti-Depressent",
+              "name": "anti_depressant",
+              "title": "Anti-Depressant",
               "type": "checkbox",
               "options": [
                 "Fluoxetine",
@@ -510,7 +508,7 @@
               ]
             },
             {
-              "name": "family_psycho_education",
+              "name": "family_psycho_education_counseling",
               "title": "Family Psycho-Education",
               "type": "checkbox",
               "options": [
@@ -539,7 +537,7 @@
           "title": "Followup Care",
           "elements": [
             {
-              "name": "medications",
+              "name": "followup_medications",
               "title": "Medications",
               "type": "radio",
               "options": [
@@ -548,7 +546,7 @@
               ]
             },
             {
-              "name": "counseling",
+              "name": "followup_counseling",
               "title": "Counseling",
               "type": "radio",
               "options": [
@@ -562,7 +560,7 @@
           "title": "Other",
           "elements": [
             {
-              "name": "permission_report",
+              "name": "permission_to_report",
               "title": "Permission to Report Data",
               "type": "radio",
               "options": [
@@ -571,7 +569,7 @@
               ]
             },
             {
-              "name": "discharge_disposition",
+              "name": "discharge_location",
               "title": "Discharge Disposition (Location)",
               "type": "checkbox",
               "options": [

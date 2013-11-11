@@ -2,10 +2,12 @@
   <div class="navbar-inner">
     <div class="container">
       <ul class="nav">
-        <li ng-repeat="tab in tabs" ng-class="{active: tab.selected}">
+        <li ng-repeat="tab in tabs" ng-class="{'active': tab.selected}">
           <button ng-click="tabSelected($index)" ng-disabled="tab.disabled">{{tab.title}}</button>
         </li>
       </ul>
     </div>
+
+    <a class="btn btn-upload" ng-class="{'btn-primary': documents.length > 0}" href="#" ng-disabled="documents.length == 0" ng-click="uploadForms()"><i class="icon-file" ng-class="{'icon-white': documents.length > 0}"></i> {{documents.length}}</a>
   </div>
 </div>

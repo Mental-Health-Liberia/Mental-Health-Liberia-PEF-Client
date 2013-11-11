@@ -1,0 +1,29 @@
+<div>
+  <div class="modal-header">
+    <h2>{{header}}</h2>
+  </div>
+
+  <div class="modal-body">
+    <div class="alert alert-error" ng-show="failureMessage">{{failureMessage}}</div>
+
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="username">Username</label>
+        <div class="controls">
+          <input type="text" id="username" name="username" ng-model="$parent.username">
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="password">Password</label>
+        <div class="controls">
+          <input type="password" id="password" name="password" ng-model="$parent.password">
+        </div>
+      </div>
+  </form></div>
+
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">Upload {{formsToUpload}} Forms</button>
+    <button class="btn" ng-click="cancel()">Cancel</button>
+  </div>
+</div>
