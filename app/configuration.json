@@ -42,13 +42,13 @@
               "title": "Clinician Training Level",
               "type": "select",
               "options": [
+                "No response",
                 "No formal training",
                 "Community health worker training",
                 "Physician's assistant training",
                 "General clinician training",
                 "Psychiatric clinician training",
-                "Other",
-                "No response"
+                "Other"
               ]
             }
           ]
@@ -119,6 +119,7 @@
               "title": "Country of Residence",
               "type": "select",
               "options": [
+                "No Response",
                 "Bomi",
                 "Bong",
                 "Gbarpolo",
@@ -154,12 +155,12 @@
               "title": "Education",
               "type": "select",
               "options": [
+                "No Response",
                 "No Formal Education",
                 "Grade / Primary School",
                 "High School",
                 "Some University",
-                "University",
-                "No Response"
+                "University"
               ]
             }
           ]
