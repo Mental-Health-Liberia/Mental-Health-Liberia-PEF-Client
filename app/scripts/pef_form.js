@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pefApp').service('$form', function factory($http) {
+angular.module('pefApp').service('$form', function factory($http, $rootScope) {
   var getFormCount = function () {
     var formCount = parseInt(window.localStorage.formCount, 10);
     if (!formCount) {
@@ -34,6 +34,8 @@ angular.module('pefApp').service('$form', function factory($http) {
     window.localStorage['form-' + formCount] = JSON.stringify(formData);
 
     incrementFormCount();
+
+    $rootScope.$broadcast('formsUpdated');
   };
 
   var testServerAvailability = function (callback) {

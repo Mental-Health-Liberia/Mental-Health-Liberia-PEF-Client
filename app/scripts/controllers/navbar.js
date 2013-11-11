@@ -17,6 +17,10 @@ angular.module('pefApp')
       });
     });
 
+    $scope.$on('formsUpdated', function () {
+      $scope.documents = $form.get();
+    });
+
     $scope.$on('selectedTabChanged', function () {
       $scope.maxValidTabIndex = Math.max($scope.maxValidTabIndex, $config.selectedTabIndex());
 

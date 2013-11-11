@@ -4,8 +4,8 @@
     <div class="control-group" ng-repeat="element in fieldset.elements">
       <label class="control-label" for="{{element.name}}">{{element.title}}</label>
       <div class="controls">
-        <p ng-if="element.type !== 'checkbox'">{{element.value}}</p>
-        <p ng-if="element.type === 'checkbox'">{{element.value.join(", ")}}</p>
+        <p ng-if="element.type !== 'checkbox' && element.value">{{element.value}}</p>
+        <p ng-if="element.type === 'checkbox' && element.value.length > 0">{{element.value.join(", ")}}</p>
       </div>
     </div>
   </fieldset>
