@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pefApp')
-  .controller('PageCtrl', function ($scope, $rootScope, $config) {
+  .controller('PageCtrl', function ($scope, $rootScope, $config, $modal) {
     var VALIDATE_TESTS = {
       'number': {
         test: function (model) {
@@ -54,10 +54,24 @@ angular.module('pefApp')
     };
 
     $scope.submitButtonClicked = function () {
-      window.alert('Success');
-      $config.submit(function () {
-        $rootScope.$broadcast('reset');
-        $config.selectTab(0);
+      var modalInstance = $modal.open({
+        templateUrl: 'views/modal.html',
+        controller: 'ModalCtrl',
+        resolve: {
+          header: function() {
+            return "Success";
+          },
+          content: function() {
+            return "The form is now ready to be uploaded whenever an internet connection is available.";
+          }
+        }
+      });
+
+      modalInstance.result.then(function () {
+        $config.submit(function () {
+          $rootScope.$broadcast('reset');
+          $config.selectTab(0);
+        });
       });
     };
 

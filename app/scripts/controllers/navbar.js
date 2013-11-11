@@ -1,8 +1,10 @@
 'use strict';
 
 angular.module('pefApp')
-  .controller('NavbarCtrl', function ($scope, $rootScope, $config) {
+  .controller('NavbarCtrl', function ($scope, $rootScope, $config, $form, $modal) {
     $scope.maxValidTabIndex = 0;
+
+    $scope.documents = $form.get();
 
     $config.tabs(function (tabs) {
       $scope.tabs = tabs.map(function (tab) {
@@ -30,6 +32,39 @@ angular.module('pefApp')
 
     $scope.tabSelected = function (index) {
       $config.selectTab(index);
+    };
+
+    $scope.uploadForms = function () {
+      $form.serverAvailable(function (available) {
+        var modalInstance;
+        if (available) {
+          modalInstance = $modal.open({
+            templateUrl: 'views/login_modal.html',
+            controller: 'LoginModalCtrl',
+            resolve: {
+              header: function() {
+                return "Upload Forms";
+              },
+              content: function() {
+                return "";
+              }
+            }
+          });
+        } else {
+          modalInstance = $modal.open({
+            templateUrl: 'views/modal.html',
+            controller: 'ModalCtrl',
+            resolve: {
+              header: function() {
+                return "Upload Forms";
+              },
+              content: function() {
+                return "Please connect to the internet to upload the forms";
+              }
+            }
+          });
+        }
+      });
     };
 
     $config.selectTab(0);

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pefApp', ['ui.bootstrap', 'ui.router'])
+angular.module('pefApp', ['ui.bootstrap', 'ui.router', 'ngSanitize'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
 

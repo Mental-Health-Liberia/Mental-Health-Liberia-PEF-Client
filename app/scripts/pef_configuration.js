@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pefApp').service('$config', function factory($http, $rootScope) {
+angular.module('pefApp').service('$config', function factory($http, $rootScope, $form) {
   var configuration = null;
   var tabs = null;
   var selectedTabIndex = 0;
@@ -87,9 +87,8 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope) 
   };
 
   var submit = function (callback) {
-    // TODO
     formKeyValuePairs(function (pairs) {
-      console.log('Attempting to submit:', pairs);
+      $form.add(pairs);
     });
 
     callback();
