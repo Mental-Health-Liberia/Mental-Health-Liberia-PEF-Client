@@ -10,4 +10,5 @@ This project is a part of the Computing for Good class led by [Ellen Zegura](htt
 * Ryan Ashcraft
 * Tanner Smith
 * John Dugan
-* Alex Saterly
+* Alex Satterly
+* Melaena Roberts
