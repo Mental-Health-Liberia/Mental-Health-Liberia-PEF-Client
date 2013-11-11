@@ -48,7 +48,7 @@ angular.module('pefApp')
         invalidMessages = invalidMessages.concat(fieldsetInvalidMessages);
       }
 
-      if (invalidMessages.length == 0) {
+      if (invalidMessages.length === 0) {
         $config.nextTab();
       } else {
         $modal.open({
@@ -94,6 +94,10 @@ angular.module('pefApp')
     };
 
     $scope.validateFieldset = function (fieldset, strict) {
+      function mapFieldsetToElementValues(element) {
+        return element.value;
+      }
+
       var invalidMessages = [];
 
       for (var e in fieldset.elements) {
@@ -104,13 +108,13 @@ angular.module('pefApp')
         }
       }
 
-      if (strict || value !== undefined) {
+      if (strict) {
         if (fieldset.rules) {
           for (var rule in fieldset.rules) {
             var test = FIELDSET_VALIDATE_TESTS[rule];
 
             if (test) {
-              var values = fieldset.elements.map(function (element) { return element.value; });
+              var values = fieldset.elements.map(mapFieldsetToElementValues);
               var result = test.test(values);
 
               if (!result) {
