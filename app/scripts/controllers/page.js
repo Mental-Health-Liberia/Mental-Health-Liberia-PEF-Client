@@ -49,6 +49,8 @@ angular.module('pefApp')
         invalidMessages = invalidMessages.concat(fieldsetInvalidMessages);
       }
 
+      document.getElementById('nextButton').blur();
+
       if (invalidMessages.length === 0) {
         $config.nextTab();
       } else {
