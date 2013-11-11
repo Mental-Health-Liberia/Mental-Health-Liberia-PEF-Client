@@ -43,10 +43,13 @@ angular.module('pefApp')
             controller: 'LoginModalCtrl',
             resolve: {
               header: function() {
-                return "Upload Forms";
+                return 'Login to Upload Forms';
               },
               content: function() {
-                return "";
+                return '';
+              },
+              formsToUpload: function() {
+                return $scope.documents.length;
               }
             }
           });
@@ -56,10 +59,10 @@ angular.module('pefApp')
             controller: 'ModalCtrl',
             resolve: {
               header: function() {
-                return "Upload Forms";
+                return 'Upload Forms';
               },
               content: function() {
-                return "Please connect to the internet to upload the forms";
+                return 'Please connect to the internet to upload the forms';
               }
             }
           });

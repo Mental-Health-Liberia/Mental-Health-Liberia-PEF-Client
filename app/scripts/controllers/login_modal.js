@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('pefApp')
-  .controller('LoginModalCtrl', function ($scope, $modalInstance, header, content) {
+  .controller('LoginModalCtrl', function ($scope, $modalInstance, header, content, formsToUpload) {
     $scope.header = header;
     $scope.content = content;
+    $scope.formsToUpload = formsToUpload;
 
     $scope.ok = function () {
       $modalInstance.close();
@@ -12,4 +13,4 @@ angular.module('pefApp')
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
     };
-});
+  });

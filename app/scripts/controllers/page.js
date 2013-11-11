@@ -49,7 +49,23 @@ angular.module('pefApp')
       if (tabValid) {
         $config.nextTab();
       } else {
-        window.alert(tabInvalidMessages.join('\n'));
+        $modal.open({
+          templateUrl: 'views/modal.html',
+          controller: 'ModalCtrl',
+          resolve: {
+            header: function() {
+              return null;
+            },
+            content: function() {
+              return ['<p><strong>Please fix the following errors before continuing:</strong></p>',
+              '<ul>',
+              '<li>',
+              tabInvalidMessages.join('</li><li>'),
+              '</li>',
+              '</ul>'].join('');
+            }
+          }
+        });
       }
     };
 
@@ -59,10 +75,10 @@ angular.module('pefApp')
         controller: 'ModalCtrl',
         resolve: {
           header: function() {
-            return "Success";
+            return 'Form Submitted';
           },
           content: function() {
-            return "The form is now ready to be uploaded whenever an internet connection is available.";
+            return 'The form is now ready to be uploaded whenever an internet connection is available.';
           }
         }
       });

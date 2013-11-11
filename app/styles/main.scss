@@ -1,7 +1,12 @@
 @import "compass_twitter_bootstrap";
+@import "compass_twitter_bootstrap_responsive";
 
 #wrapper {
   margin-top: 10px;
+}
+
+.navbar-inner {
+  padding: 0 60px 0 0;
 }
 
 .nav > li > button {
@@ -79,8 +84,17 @@
   position: absolute;
   top: 0;
   right: 5px;
+  width: 40px;
 }
 
 .modal-header {
+  text-align: center;
+}
+
+.modal-body .content:last-child {
+  margin: 0;
+}
+
+.modal-footer {
   text-align: center;
 }

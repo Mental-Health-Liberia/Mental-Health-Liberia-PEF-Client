@@ -38,9 +38,9 @@ angular.module('pefApp').service('$form', function factory($http) {
 
   var testServerAvailability = function (callback) {
     $http({method: 'GET', url: '/'})
-      .success(function (data, status) {
+      .success(function () {
         callback(true);
-      }).error(function (data, status) {
+      }).error(function () {
         callback(false);
       });
   };
