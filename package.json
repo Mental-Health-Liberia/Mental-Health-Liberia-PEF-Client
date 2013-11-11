@@ -2,8 +2,8 @@
   "name": "pef",
   "version": "0.0.0",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/Tanner/Mental-Health-Liberia-PEF-Client.git"
+    "type": "git",
+    "url": "https://github.com/Tanner/Mental-Health-Liberia-PEF-Client.git"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
