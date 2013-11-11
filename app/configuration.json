@@ -17,10 +17,10 @@
               "title": "Referral Source",
               "type": "select",
               "options": [
+                "No response",
                 "Clinician",
                 "Messages",
-                "Other",
-                "No response"
+                "Other"
               ]
             }
           ]
@@ -46,7 +46,7 @@
                 "Community health worker training",
                 "Physician's assistant training",
                 "General clinician training",
-                "Psychchiatric clinician training",
+                "Psychiatric clinician training",
                 "Other",
                 "No response"
               ]
@@ -147,11 +147,11 @@
               "title": "Marital Status",
               "type": "select",
               "options": [
+                "No Response",
                 "Single / Never Married",
                 "Married",
                 "Divorced",
-                "Windowed",
-                "No Response"
+                "Widowed"
               ]
             },
             {
@@ -249,13 +249,13 @@
               "title": "Primary",
               "type": "select",
               "options": [
+                "None",
                 "Major Depressive Disorder (Recurrent)",
                 "Bipolar Disorder - Most Recent Episode Depressed",
                 "Bipolar Disorder - Most Recent Episode Manic",
                 "Bipolar Disorder - Most Recent Episode Mixed",
                 "Mood Disorder NOS",
-                "Mood Disorder due to Medical Condition",
-                "None"
+                "Mood Disorder due to Medical Condition"
               ]
             },
             {
@@ -263,13 +263,13 @@
               "title": "Secondary",
               "type": "select",
               "options": [
+                "None",
                 "Full Remission",
                 "Partial Remission",
                 "Mild",
                 "Moderate",
                 "Severe without Psychotic Features",
-                "Severe with Psychotic Features",
-                "None"
+                "Severe with Psychotic Features"
               ]
             }
           ]
@@ -282,6 +282,7 @@
               "title": "Anxiety",
               "type": "select",
               "options": [
+                "None",
                 "Generalized Anxiety Disorder",
                 "Panic Disorder with Agoraphobia",
                 "Panic Disorder without Agoraphobia",
@@ -293,8 +294,7 @@
                 "Acute Stress",
                 "Anxiety Disorder due to General Medical Condition",
                 "Anxiety Disorder due to Specific Medical Condition",
-                "Anxiety Disoder due to NOS",
-                "None"
+                "Anxiety Disoder due to NOS"
               ]
             },
             {
@@ -302,6 +302,7 @@
               "title": "Psychotic",
               "type": "select",
               "options": [
+                "None",
                 "Schizophrenia Catatonic Type",
                 "Schizophrenia Disorganized Type",
                 "Schizophrenia Paranoid Type",
@@ -310,8 +311,7 @@
                 "Schizoaffectiv Disorder",
                 "Psychotic Disorder due to Medical Condition with Delusions",
                 "Psychotic Disorder due to Medical Condition with Hallucinations",
-                "Psychotic Disorder NOS",
-                "None"
+                "Psychotic Disorder NOS"
               ]
             },
             {
@@ -319,6 +319,7 @@
               "title": "Somatoform",
               "type": "select",
               "options": [
+                "None",
                 "Somatization Disorder",
                 "Undifferentiated Somatoform Disorder",
                 "Conversion Disorder",
@@ -326,8 +327,7 @@
                 "Pain Disorder with Psychological Factors",
                 "Hypochondriasis",
                 "Body Dysmorphic Disorder",
-                "Somatoform Disorder NOS",
-                "None"
+                "Somatoform Disorder NOS"
               ]
             }
           ]
@@ -340,13 +340,13 @@
               "title": "First Level",
               "type": "select",
               "options": [
+                "None",
                 "Alcohol-Related Disorder",
                 "Cannabis",
                 "Cocaine",
                 "Nicotine Dependence",
                 "Opioid",
-                "Sedative-, Hypnotic-, or Anxiolytic",
-                "None"
+                "Sedative-, Hypnotic-, or Anxiolytic"
               ]
             },
             {
@@ -354,12 +354,12 @@
               "title": "Second Level",
               "type": "select",
               "options": [
+                "None",
                 "Induced Mood Disorder",
                 "Induced Psychotic Disorder with Delusions",
                 "Induced Psychotic Disorder with Hallucinations",
                 "Intoxication",
-                "Withdrawal",
-                "None"
+                "Withdrawal"
               ]
             }
           ]
@@ -372,10 +372,10 @@
               "title": "Seizure",
               "type": "select",
               "options": [
+                "None",
                 "With Grand Mal Seizure",
                 "With Petit Mal Seizure",
-                "Without Seizure",
-                "None"
+                "Without Seizure"
               ]
             },
             {

@@ -44,9 +44,10 @@ angular.module('pefApp').directive('pefElement', function($compile) {
     },
     'datepicker': {
       init: function (scope) {
+        scope.maxDate = Date.now();
         scope.value = Date.now();
       },
-      template: '<div class="well well-small pull-left"><datepicker ng-model="$parent.value" min="minDate" show-weeks="showWeeks" day-format="\'d\'"></timepicker></div>',
+      template: '<div class="well well-small pull-left"><datepicker ng-model="$parent.value" min="minDate" max="maxDate" show-weeks="showWeeks" day-format="\'d\'"></timepicker></div>',
     },
     'timepicker': {
       init: function (scope) {
