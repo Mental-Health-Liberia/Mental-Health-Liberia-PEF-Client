@@ -33,7 +33,7 @@ angular.module('pefApp').directive('pefElement', function($compile) {
         };
 
         scope.check = function (option) {
-          if (scope.isChecked(option)) {
+          if (!scope.isChecked(option)) {
             scope.value.push(option);
           } else {
             _.pull(scope.value, option);
