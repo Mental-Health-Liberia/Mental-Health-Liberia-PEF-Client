@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pefApp')
-  .controller('LoginModalCtrl', function ($scope, $http, $modalInstance, header, formsToUpload) {
+  .controller('LoginModalCtrl', function ($scope, $http, $modalInstance, $form, header, formsToUpload) {
     $scope.header = header;
     $scope.formsToUpload = formsToUpload;
 
@@ -32,7 +32,9 @@ angular.module('pefApp')
                 $scope.failureMessage = 'Something went wrong. Please try again later.';
               }
             } else {
-              $modalInstance.close();
+              $form.uploadAllForms(function () {
+                $modalInstance.close();
+              });
             }
           }).error(function (data) {
             $scope.failureMessage = data;

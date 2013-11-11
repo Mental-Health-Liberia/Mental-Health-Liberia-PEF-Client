@@ -69,13 +69,13 @@ angular.module('pefApp')
       }
     };
 
-    $scope.submitButtonClicked = function () {
+    $scope.saveButtonClicked = function () {
       var modalInstance = $modal.open({
         templateUrl: 'views/modal.html',
         controller: 'ModalCtrl',
         resolve: {
           header: function() {
-            return 'Form Submitted';
+            return 'Form Saved';
           },
           content: function() {
             return 'The form is now ready to be uploaded whenever an internet connection is available.';

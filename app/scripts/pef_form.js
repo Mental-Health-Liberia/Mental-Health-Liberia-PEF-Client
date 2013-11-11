@@ -17,6 +17,12 @@ angular.module('pefApp').service('$form', function factory($http, $rootScope) {
     window.localStorage.formCount = formCount + 1;
   };
 
+  var decrementFormCount = function () {
+    var formCount = getFormCount();
+
+    window.localStorage.formCount = formCount - 1;
+  };
+
   var getForms = function () {
     var formCount = getFormCount();
 
@@ -38,6 +44,22 @@ angular.module('pefApp').service('$form', function factory($http, $rootScope) {
     $rootScope.$broadcast('formsUpdated');
   };
 
+  var deleteFormAtIndex = function (index) {
+    var formCount = getFormCount();
+
+    if (index >= formCount || index < 0) {
+      return;
+    }
+
+    for (var i = index; i <= formCount - 2; i++) {
+      window.localStorage['form-' + i] = window.localStorage['form-' + (i + 1)];
+    }
+
+    decrementFormCount();
+
+    $rootScope.$broadcast('formsUpdated');
+  };
+
   var testServerAvailability = function (callback) {
     $http({method: 'GET', url: '/'})
       .success(function () {
@@ -47,9 +69,45 @@ angular.module('pefApp').service('$form', function factory($http, $rootScope) {
       });
   };
 
+  var uploadForm = function (formWithIndex, callback) {
+    $http({
+      method: 'POST',
+      url: '/forms.json',
+      data: formWithIndex.form
+    }).success(function () {
+      deleteFormAtIndex(formWithIndex.index);
+      callback();
+    }).error(function (data) {
+      callback(data);
+    });
+  };
+
+  var uploadAllForms = function (callback) {
+    var forms = getForms();
+
+    for (var i = 0; i < forms.length; i++) {
+      forms[i] = {
+        index: i,
+        form: forms[i]
+      };
+    }
+
+    forms.reverse();
+
+    async.eachSeries(forms, uploadForm, function (err) {
+      if (err) {
+        console.error(err);
+        callback(false);
+      } else {
+        callback(true);
+      }
+    });
+  };
+
   return {
     get: getForms,
     add: addForm,
-    serverAvailable: testServerAvailability
+    serverAvailable: testServerAvailability,
+    uploadAllForms: uploadAllForms
   };
 });
