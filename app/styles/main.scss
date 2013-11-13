@@ -2,57 +2,62 @@
 @import "compass_twitter_bootstrap_responsive";
 
 #wrapper {
-  margin-top: 10px;
-}
-
-.navbar-inner {
-  padding: 0 60px 0 0;
-}
-
-.nav > li > button {
-  -webkit-user-select: none;
-  cursor: default;
-  float: none;
-  padding: 10px 15px 10px;
-  color: #777777;
-  text-decoration: none;
-  text-shadow: 0 1px 0 white;
-  background-color: transparent;
-  border: 0;
-}
-
-.nav > li > button:hover,
-.nav > li > button:focus {
-  background-color: transparent;
-  color: #333333;
-  text-decoration: none;
-}
-
-.nav > li > button:disabled {
-  cursor: not-allowed;
-  background-color: transparent;
-  color: #999999;
-}
-
-.nav > li.active > button {
-  color: #555555;
-  text-decoration: none;
-  background-color: #e6e6e6;
-  -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
-  -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
-  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+  margin-top: 20px;
 }
 
 .form-horizontal .control-group {
   margin: 0 0 10px 0;
 }
 
-.form-horizontal .control-label {
-  width: 180px;
+.nav.nav-tabs.nav-stacked li a {
+  position: relative;
+  padding-right: 38px; // 12px + 14px + 12px;
+
+  .icon-chevron-right {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    margin-top: -7px;
+
+    opacity: 0.3;
+  }
 }
 
-.form-horizontal .controls {
-  margin-left: 200px;
+.nav.nav-tabs.nav-stacked li.active a {
+  color: #ffffff;
+  background-color: #0088cc;
+  border: 0;
+  padding: 9px 12px;
+  z-index: 2;
+
+  font-weight: bold;
+
+  .icon-chevron-right {
+    opacity: 1.0;
+  }
+}
+
+.nav.nav-tabs.nav-stacked a.disabled {
+  color: #999;
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: white;
+    z-index: 0;
+  }
+}
+
+.nav.nav-tabs.nav-stacked li.upload a {
+  color: #ffffff;
+  background-color: #5CB75C;
+  border: 0;
+  padding: 9px 12px;
+  z-index: 2;
+  text-align: center;
+
+  &:hover {
+    background-color: #47A447;
+  }
 }
 
 .form-horizontal .controls > p {
@@ -78,13 +83,6 @@
 
 .controls .well {
   margin-bottom: 0;
-}
-
-.btn-upload {
-  position: absolute;
-  top: 0;
-  right: 5px;
-  width: 40px;
 }
 
 .modal-header {
