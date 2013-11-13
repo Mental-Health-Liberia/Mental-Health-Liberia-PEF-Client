@@ -9,9 +9,31 @@
   margin: 0 0 10px 0;
 }
 
+.condensed {
+  fieldset {
+    margin-bottom: 20px;
+  }
+
+  legend {
+    margin-bottom: 10px;
+  }
+
+  .control-group {
+    margin: 0;
+
+    @media (max-width: 767px) {
+      margin-bottom: 10px;
+    }
+  }
+
+  .control-label {
+    font-weight: bold;
+  }
+}
+
 .nav.nav-tabs.nav-stacked li a {
   position: relative;
-  padding-right: 38px; // 12px + 14px + 12px;
+  padding-right: 38px; // 12px + 14px + 12px
 
   .icon-chevron-right {
     position: absolute;

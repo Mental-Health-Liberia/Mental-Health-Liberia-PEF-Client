@@ -29,6 +29,10 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
     selectTab(window.pefSelectedTabIndex + 1);
   };
 
+  var lastTab = function() {
+    selectTab(window.pefSelectedTabIndex - 1);
+  };
+
   var selectedTab = function (callback) {
     getTabs(function (tabs) {
       return callback(tabs[window.pefSelectedTabIndex]);
@@ -90,6 +94,7 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
     selectTab: selectTab,
     deselectTab: deselectTab,
     nextTab: nextTab,
+    lastTab: lastTab,
 
     selectedTab: selectedTab,
     selectedTabIndex: getSelectedTabIndex,

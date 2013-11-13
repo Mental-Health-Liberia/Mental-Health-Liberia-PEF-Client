@@ -28,6 +28,10 @@ angular.module('pefApp')
       }
     };
 
+    function init() {
+      $config.selectTab(0);
+    }
+
     $scope.$on('selectedTabChanged', function (event, selectedTab) {
       $config.tabs(function (tabs) {
         $scope.tabs = tabs;
@@ -38,9 +42,7 @@ angular.module('pefApp')
       window.scrollTo(0, 0);
     });
 
-    $config.selectTab(0);
-
-    $scope.nextButtonClicked = function () {
+    $scope.continueButtonClicked = function () {
       var invalidMessages = [];
 
       for (var f in $scope.selectedTab.fieldsets) {
@@ -49,7 +51,8 @@ angular.module('pefApp')
         invalidMessages = invalidMessages.concat(fieldsetInvalidMessages);
       }
 
-      document.getElementById('nextButton').blur();
+      document.getElementById('continueButton').blur();
+      document.getElementById('backButton').blur();
 
       if (invalidMessages.length === 0) {
         $config.nextTab();
@@ -68,10 +71,21 @@ angular.module('pefApp')
               invalidMessages.join('</li><li>'),
               '</li>',
               '</ul>'].join('');
+            },
+            buttons: function() {
+              return ['OK'];
             }
           }
         });
       }
+    };
+
+    $scope.backButtonClicked = function () {
+      $config.lastTab();
+    };
+
+    $scope.backButtonDisabled = function () {
+      return $config.selectedTabIndex() === 0;
     };
 
     $scope.saveButtonClicked = function () {
@@ -80,19 +94,24 @@ angular.module('pefApp')
         controller: 'ModalCtrl',
         resolve: {
           header: function() {
-            return 'Form Saved';
+            return 'Save Form';
           },
           content: function() {
-            return 'The form is now ready to be uploaded whenever an internet connection is available.';
+            return 'Once the form has been saved, it can no longer be edited. Are you sure you want to save the form?';
+          },
+          buttons: function() {
+            return ['Save', 'Don\'t Save'];
           }
         }
       });
 
-      modalInstance.result.then(function () {
-        $config.submit(function () {
-          $rootScope.$broadcast('reset');
-          $config.selectTab(0);
-        });
+      modalInstance.result.then(function (result) {
+        if (result === 'Save') {
+          $config.submit(function () {
+            $rootScope.$broadcast('reset');
+            $config.selectTab(0);
+          });
+        }
       });
     };
 
@@ -162,4 +181,6 @@ angular.module('pefApp')
     $scope.formatDate = function (value) {
       return moment(value).format('MMMM Do YYYY');
     };
+
+    init();
   });

@@ -1,13 +1,20 @@
-<div ng-repeat="tab in tabs">
+<div ng-repeat="tab in tabs" class="condensed">
+  <h2 ng-if="tab.fieldsets.length > 0">{{tab.title}}</h2>
   <fieldset ng-repeat="fieldset in tab.fieldsets">
     <legend>{{fieldset.title}}</legend>
-    <div class="control-group" ng-repeat="element in fieldset.elements">
+    <div class="control-group condensed" ng-repeat="element in fieldset.elements">
       <label class="control-label" for="{{element.name}}">{{element.title}}</label>
       <div class="controls">
         <p ng-switch="element.type">
           <span ng-switch-when="datepicker">{{formatDate(element.value)}}</span>
-          <span ng-switch-when="checkbox">{{element.value.join(", ")}}</span>
-          <span ng-switch-default>{{element.value}}</span>
+          <span ng-switch-when="checkbox">
+            <span ng-if="element.value.length === 0" class="unset">None Selected</span>
+            <span ng-if="element.value.length > 0">{{element.value.join(", ")}}</span>
+          </span>
+          <span ng-switch-default>
+            <span ng-if="!element.value || element.value.length === 0" class="unset">No Response</span>
+            <span ng-if="element.value && element.value.length > 0">{{element.value}}</span>
+          </span>
         </p>
       </div>
     </div>
@@ -15,5 +22,6 @@
 </div>
 
 <div class="form-actions">
-  <button class="btn btn-primary btn-large" ng-click="saveButtonClicked()">Save Form</button>
+  <button id="backButton" class="btn" ng-click="backButtonClicked()" ng-hide="backButtonDisabled()">Back</button>
+  <button class="btn btn-success" ng-click="saveButtonClicked()">Save Form</button>
 </div>
