@@ -5,18 +5,27 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
   var tabs = null;
   var selectedTabIndex = 0;
 
-  $http.get('configuration.json').success(function(data) {
-    config = data;
-    tabs = config.tabs;
+  function resetTabs() {
+    $http.get('configuration.json').success(function(data) {
+      config = data;
+      tabs = config.tabs;
 
-    tabs.push({
-      title: 'Confirm',
-      name: 'confirm',
-      templateUrl: 'confirm'
+      tabs.push({
+        title: 'Confirm',
+        name: 'confirm',
+        alert: "Carefully review the information and scroll down to the bottom of the page to save.",
+        templateUrl: 'confirm'
+      });
+
+      $rootScope.$broadcast('tabsReady');
     });
+  }
 
-    $rootScope.$broadcast('tabsReady');
+  $rootScope.$on('reset', function () {
+    resetTabs();
   });
+
+  resetTabs();
 
   var getConfig = function (callback) {
     if (config !== null) {
@@ -89,21 +98,6 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
 
     callback();
   };
-
-  $rootScope.$on('reset', function () {
-    $http.get('configuration.json').success(function(data) {
-      config = data;
-      tabs = config.tabs;
-
-      tabs.push({
-        title: 'Confirm',
-        name: 'confirm',
-        templateUrl: 'confirm'
-      });
-
-      selectTab(0);
-    });
-  });
 
   return {
     get: getConfig,

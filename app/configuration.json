@@ -108,6 +108,7 @@
             {
               "name": "distance_travelled_to_clinic",
               "title": "Distance Travelled to Clinic (kilometers)",
+              "help": "1 kilometer takes about 10-15 minutes to walk",
               "type": "text",
               "rules": {
                 "number": true,
@@ -214,10 +215,7 @@
                 "number": true
               }
             }
-          ],
-          "rules": {
-            "one_required": true
-          }
+          ]
         },
         {
           "title": "Other Results",
@@ -233,7 +231,8 @@
     },
     {
       "name": "diagnosis",
-      "title": "Diagnosis",
+      "title": "Primary Diagnosis",
+      "alert": "Select one diagnosis from one of the categories below.",
       "fieldsets": [
         {
           "title": "Mood Disorder",

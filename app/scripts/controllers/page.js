@@ -39,7 +39,9 @@ angular.module('pefApp')
 
       $scope.selectedTab = selectedTab;
 
-      window.scrollTo(0, 0);
+      $('html, body').animate({
+        scrollTop: 0
+      }, 200);
     });
 
     $scope.continueButtonClicked = function () {

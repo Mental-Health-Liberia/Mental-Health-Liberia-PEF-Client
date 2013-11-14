@@ -1,14 +1,16 @@
 <div ng-controller="NavbarCtrl" id="sidenav" class="span3">
-  <ul class="nav nav-tabs nav-stacked">
-    <li ng-repeat="tab in tabs" ng-class="{'active': tab.selected}">
-      <a href="#" ng-click="tabSelected($index)" ng-if="!tab.disabled"><i class="icon-chevron-right" ng-class="{'icon-white': tab.selected}"></i> {{$index + 1}}. {{tab.title}}</a>
-      <a href="#" ng-if="tab.disabled" class="disabled"><i class="icon-chevron-right"></i> {{$index + 1}}. {{tab.title}}</a>
-    </li>
-  </ul>
+  <div class="fixed">
+    <ul class="nav nav-tabs nav-stacked">
+      <li ng-repeat="tab in tabs" ng-class="{'active': tab.selected}">
+        <a href="#" ng-click="tabSelected($index)" ng-if="!tab.disabled"><i class="icon-chevron-right" ng-class="{'icon-white': tab.selected}"></i> {{$index + 1}}. {{tab.title}}</a>
+        <a href="#" ng-if="tab.disabled" class="disabled"><i class="icon-chevron-right"></i> {{$index + 1}}. {{tab.title}}</a>
+      </li>
+    </ul>
 
-  <ul class="nav nav-tabs nav-stacked">
-    <li class="upload" ng-show="documents.length > 0">
-     <a href="#" ng-click="uploadForms()"><i class="icon-arrow-up" ng-class="{'icon-white': documents.length > 0}"></i> Upload {{documents.length}} Forms</a>
-   </li>
- </ul>
+    <ul class="nav nav-tabs nav-stacked">
+      <li class="upload" ng-show="documents.length > 0">
+       <a href="#" ng-click="uploadForms()"><i class="icon-arrow-up" ng-class="{'icon-white': documents.length > 0}"></i> Upload {{documents.length}} Forms</a>
+     </li>
+   </ul>
+  </div>
 </div>

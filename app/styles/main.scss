@@ -31,6 +31,36 @@
   }
 }
 
+@media (min-width: 768px) {
+  #sidenav:after,
+  #sidenav:before {
+    content: '';
+    display: inline-block;
+    clear: both;
+  }
+
+  #sidenav > .fixed {
+    position: fixed;
+    top: 20px;
+  }
+
+  #sidenav > .fixed > .nav {
+    width: 220px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  #sidenav > .fixed > .nav {
+    width: 166px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #sidenav > .fixed > .nav {
+    widtH: 270px;
+  }
+}
+
 .nav.nav-tabs.nav-stacked li a {
   position: relative;
   padding-right: 38px; // 12px + 14px + 12px
