@@ -278,6 +278,7 @@ module.exports = function (grunt) {
         },
         src: [
           '*.html',
+          '*.json',
           'components/**/*.js',
           'views/{,*/}*.html',
           'scripts/{,*/}*.js',
