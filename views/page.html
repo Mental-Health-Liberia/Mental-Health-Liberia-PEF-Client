@@ -12,7 +12,8 @@
     </fieldset>
 
     <div class="form-actions">
-      <button class="btn btn-primary" ng-click="nextButtonClicked()">Continue</button>
+      <button id="backButton" class="btn" ng-click="backButtonClicked()" ng-hide="backButtonDisabled()">Back</button>
+      <button id="continueButton" class="btn btn-primary" ng-click="continueButtonClicked()">Continue</button>
     </div>
   </div>
 

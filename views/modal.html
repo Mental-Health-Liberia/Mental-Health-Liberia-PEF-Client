@@ -8,6 +8,6 @@
   </div>
 
   <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button ng-repeat="button in buttons" class="btn" ng-class="{'btn-primary': $index === 0}" ng-click="buttonClicked(button)">{{button}}</button>
   </div>
 </div>

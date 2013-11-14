@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="stylesheet" href="styles/c5c9adc4.main.css">
+    <link rel="stylesheet" href="styles/6fbd1516.main.css">
   </head>
   <body ng-app="pefApp">
     <!--[if lt IE 7]>
@@ -22,11 +22,10 @@
       <script src="components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <ng-include src="'views/navbar.html'"></ng-include>
-
     <div class="container" id="wrapper">
       <div class="row">
-        <div class="span12">
+        <ng-include src="'views/navbar.html'"></ng-include>
+        <div class="span9">
           <div ui-view=""></div>
         </div>
       </div>
@@ -34,11 +33,12 @@
 
     <script src="components/lodash/dist/lodash.min.js"></script>
     <script src="components/async/lib/async.js"></script>
+    <script src="components/momentjs/moment.js"></script>
     <script src="components/angular/angular.js"></script>
     <script src="components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="components/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.min.js"></script>
 
-    <script src="scripts/a0f15747.scripts.js"></script>
+    <script src="scripts/b850a601.scripts.js"></script>
   </body>
 </html>
