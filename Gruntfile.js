@@ -281,7 +281,7 @@ module.exports = function (grunt) {
           'views/{,*/}*.html',
           'scripts/{,*/}*.js',
           'styles/{,*/}*.css',
-          // 'images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          'images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
           // 'styles/fonts/*'
         ],
         dest: '<%= yeoman.dist %>/manifest.appcache'
