@@ -68,7 +68,8 @@ angular.module('pefApp').directive('pefElement', function($compile) {
       help: '=help',
       rules: '=rules',
       valid: '=valid',
-      validate: '=validate'
+      validate: '=validate',
+      invalidMessage: '=invalidMessage'
     },
     link: function(scope, elm) {
       scope.valid = true;
@@ -83,7 +84,7 @@ angular.module('pefApp').directive('pefElement', function($compile) {
         }
 
         elm.prepend(TYPE_MAP[scope.type].template);
-        elm.append('<span class="help-inline" ng-show="help"><span class="text-warning">{{help}}</span></span>');
+        elm.append('<span class="help-inline" ng-show="help && valid"><span class="text-warning">{{help}}</span></span>');
         elm.append('<span class="help-inline" ng-show="!valid">This field {{invalidMessage}}.</span>');
       }
 
