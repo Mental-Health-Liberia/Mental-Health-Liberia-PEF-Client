@@ -127,7 +127,7 @@ angular.module('pefApp')
       for (var e in fieldset.elements) {
         var element = fieldset.elements[e];
 
-        if (!$scope.validate(element, true)) {
+        if (!$scope.validate(element, strict)) {
           invalidMessages.push(element.title + ' ' + element.invalidMessage + '.');
         }
       }
@@ -155,7 +155,7 @@ angular.module('pefApp')
     $scope.validate = function (element, strict) {
       var value = element.value;
 
-      if (strict || value !== undefined) {
+      if (strict || (value !== undefined && value.length > 0)) {
         if (element.rules) {
           for (var rule in element.rules) {
             var test = ELEMENT_VALIDATE_TESTS[rule];
