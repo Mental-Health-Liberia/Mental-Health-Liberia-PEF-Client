@@ -5,7 +5,7 @@ angular.module('pefApp').directive('pefElement', function($compile) {
     'select': {
       init: function (scope) {
         if (scope.options) {
-          scope.value = scope.options[0];
+          scope.value = scope.value || scope.options[0];
         }
       },
       template: '<select ng-model="value" id="{{name}}" name="{{name}}" ng-options="option for option in options"></select>',
@@ -19,7 +19,7 @@ angular.module('pefApp').directive('pefElement', function($compile) {
     'radio': {
       init: function (scope) {
         if (scope.options) {
-          scope.value = scope.options[0];
+          scope.value = scope.value || scope.options[0];
         }
       },
       template: '<label class="radio" ng-repeat="option in options"><input type="radio" ng-model="$parent.value" value="{{option}}"> {{option}} </label>',
@@ -45,13 +45,13 @@ angular.module('pefApp').directive('pefElement', function($compile) {
     'datepicker': {
       init: function (scope) {
         scope.maxDate = Date.now();
-        scope.value = Date.now();
+        scope.value = scope.value || Date.now();
       },
       template: '<div class="well well-small pull-left"><datepicker class="datepicker" ng-model="value" max="maxDate" show-weeks="showWeeks" day-format="\'d\'"></timepicker></div>',
     },
     'timepicker': {
       init: function (scope) {
-        scope.value = Date.now();
+        scope.value = scope.value || Date.now();
       },
       template: '<div class="well well-small pull-left" ng-model="value"><timepicker class="timepicker" show-meridian="true"></timepicker></div>'
     }
