@@ -69,6 +69,9 @@ angular.module('pefApp')
               },
               content: function() {
                 return 'Please connect to the internet to upload the forms.';
+              },
+              buttons: function() {
+                return ['OK'];
               }
             }
           });
