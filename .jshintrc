@@ -23,6 +23,7 @@
     "angular": false,
     "_": false,
     "async": false,
-    "moment": false
+    "moment": false,
+    "$": false
   }
 }
