@@ -13,7 +13,7 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
       tabs.push({
         title: 'Confirm',
         name: 'confirm',
-        alert: "Carefully review the information and scroll down to the bottom of the page to save.",
+        alert: 'Carefully review the information and scroll down to the bottom of the page to save.',
         templateUrl: 'confirm'
       });
 
