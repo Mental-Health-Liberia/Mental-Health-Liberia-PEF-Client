@@ -6,14 +6,16 @@ angular.module('pefApp')
 
     $scope.documents = $form.get();
 
-    $config.tabs(function (tabs) {
-      $scope.tabs = tabs.map(function (tab) {
-        return {
-          title: tab.title,
-          slug: tab.name,
-          selected: (_.indexOf(tabs, tab) === $config.selectedTabIndex()),
-          disabled: (_.indexOf(tabs, tab) > $scope.maxValidTabIndex)
-        };
+    $rootScope.$on('tabsReady', function () {
+      $config.tabs(function (tabs) {
+        $scope.tabs = tabs.map(function (tab) {
+          return {
+            title: tab.title,
+            slug: tab.name,
+            selected: (_.indexOf(tabs, tab) === $config.selectedTabIndex()),
+            disabled: (_.indexOf(tabs, tab) > $scope.maxValidTabIndex)
+          };
+        });
       });
     });
 

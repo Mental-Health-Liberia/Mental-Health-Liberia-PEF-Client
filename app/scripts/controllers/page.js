@@ -28,9 +28,9 @@ angular.module('pefApp')
       }
     };
 
-    function init() {
+    $rootScope.$on('tabsReady', function () {
       $config.selectTab(0);
-    }
+    });
 
     $scope.$on('selectedTabChanged', function (event, selectedTab) {
       $config.tabs(function (tabs) {
@@ -181,6 +181,4 @@ angular.module('pefApp')
     $scope.formatDate = function (value) {
       return moment(value).format('MMMM Do YYYY');
     };
-
-    init();
   });
