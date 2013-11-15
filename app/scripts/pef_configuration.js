@@ -1,6 +1,32 @@
 'use strict';
 
-angular.module('pefApp').service('$config', function factory($http, $rootScope, $form) {
+angular.module('pefApp').service('$config', function factory($http, $rootScope, $form, $modal) {
+  var FIELDSET_VALIDATE_TESTS = {
+    'one_required': {
+      test: function (models) {
+        return models.some(function (model) {
+          return model !== undefined && model !== null && model.length > 0;
+        });
+      },
+      message: 'must have at least one completed field'
+    }
+  };
+
+  var ELEMENT_VALIDATE_TESTS = {
+    'number': {
+      test: function (model) {
+        return (model === undefined) || /^[0-9]*$/.test(model);
+      },
+      message: 'should be a number'
+    },
+    'required': {
+      test: function (model) {
+        return (model !== undefined) && (model !== null) && model.trim().length !== 0;
+      },
+      message: 'is required'
+    }
+  };
+
   var config = null;
   var tabs = null;
   var selectedTabIndex = 0;
@@ -59,10 +85,8 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
     selectTab(selectedTabIndex - 1);
   };
 
-  var selectedTab = function (callback) {
-    getTabs(function (tabs) {
-      return callback(tabs[selectedTabIndex]);
-    });
+  var selectedTab = function () {
+    return tabs[selectedTabIndex];
   };
 
   var getSelectedTabIndex = function () {
@@ -99,6 +123,107 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
     callback();
   };
 
+  var tabInvalidMessages = function (tab) {
+    var invalidMessages = [];
+
+    for (var f in tab.fieldsets) {
+      var fieldset = tab.fieldsets[f];
+      var fieldsetInvalidMessages = validateFieldset(fieldset, true);
+      invalidMessages = invalidMessages.concat(fieldsetInvalidMessages);
+    }
+
+    document.getElementById('continueButton').blur();
+    document.getElementById('backButton').blur();
+
+    return invalidMessages;
+  };
+
+  var showInvalidModal = function (invalidMessages) {
+    $modal.open({
+      templateUrl: 'views/modal.html',
+      controller: 'ModalCtrl',
+      resolve: {
+        header: function() {
+          return null;
+        },
+        content: function() {
+          return ['<p><strong>Please fix the following errors before continuing:</strong></p>',
+          '<ul>',
+          '<li>',
+          invalidMessages.join('</li><li>'),
+          '</li>',
+          '</ul>'].join('');
+        },
+        buttons: function() {
+          return ['OK'];
+        }
+      }
+    });
+  };
+
+  var validateFieldset = function (fieldset, strict) {
+    function mapFieldsetToElementValues(element) {
+      return element.value;
+    }
+
+    var invalidMessages = [];
+
+    for (var e in fieldset.elements) {
+      var element = fieldset.elements[e];
+
+      if (!validate(element, strict)) {
+        invalidMessages.push(element.title + ' ' + element.invalidMessage + '.');
+      }
+    }
+
+    if (strict) {
+      if (fieldset.rules) {
+        for (var rule in fieldset.rules) {
+          var test = FIELDSET_VALIDATE_TESTS[rule];
+
+          if (test) {
+            var values = fieldset.elements.map(mapFieldsetToElementValues);
+            var result = test.test(values);
+
+            if (!result) {
+              invalidMessages.push(fieldset.title + ' ' + test.message + '.');
+            }
+          }
+        }
+      }
+    }
+
+    return invalidMessages;
+  };
+
+  var validate = function (element, strict) {
+    var value = element.value;
+
+    if (strict || (value !== undefined && value.length > 0)) {
+      if (element.rules) {
+        for (var rule in element.rules) {
+          var test = ELEMENT_VALIDATE_TESTS[rule];
+
+          if (test) {
+            var result = test.test(value);
+
+            if (!result) {
+              element.valid = false;
+              element.invalidMessage = test.message;
+
+              return false;
+            }
+          }
+        }
+      }
+    }
+
+    element.valid = true;
+    element.invalidMessage = null;
+
+    return true;
+  };
+
   return {
     get: getConfig,
     tabs: getTabs,
@@ -110,6 +235,11 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
     selectedTab: selectedTab,
     selectedTabIndex: getSelectedTabIndex,
 
-    submit: submit
+    submit: submit,
+
+    tabInvalidMessages: tabInvalidMessages,
+    showInvalidModal: showInvalidModal,
+    validateFieldset: validateFieldset,
+    validate: validate
   };
 });

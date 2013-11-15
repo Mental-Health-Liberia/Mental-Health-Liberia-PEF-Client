@@ -37,6 +37,15 @@ angular.module('pefApp')
     });
 
     $scope.tabSelected = function (index) {
+      if (index > $config.selectedTabIndex()) {
+        var invalidMessages = $config.tabInvalidMessages($config.selectedTab());
+
+        if (invalidMessages.length > 0) {
+          $config.showInvalidModal(invalidMessages);
+          return;
+        }
+      }
+
       $config.selectTab(index);
     };
 
