@@ -1,0 +1,39 @@
+<div>
+  <div class="modal-header">
+    <h2>{{header}}</h2>
+  </div>
+
+  <div class="modal-body">
+    <div class="alert alert-error" ng-show="failureMessage">{{failureMessage}}</div>
+
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="firstName">First Name</label>
+        <div class="controls">
+          <input type="text" id="firstName" name="firstName" ng-model="$parent.firstName">
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="lastName">Last Name</label>
+        <div class="controls">
+          <input type="text" id="lastName" name="lastName" ng-model="$parent.lastName">
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <label class="control-label" for="birthdate">Birthdate</label>
+        <div class="controls">
+          <input type="date" id="birthdate" name="birthdate" ng-model="$parent.birthdate">
+        </div>
+        <div class="controls">
+          <input type="checkbox" id="unknownBirthdate" name="unknownBirthdate" ng-model="$parent.unknownBirthdate"> Unknown Birthdate
+        </div>
+      </div>      
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-click="generate()"><i class="icon-user icon-white"></i> Generate ID</button>
+    <button class="btn" ng-click="cancel()">Cancel</button>
+  </div>
+</div>

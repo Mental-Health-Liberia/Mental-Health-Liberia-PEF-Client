@@ -14,7 +14,7 @@ angular.module('pefApp').directive('pefElement', function($compile) {
       template: '<input type="text" ng-model="value" id="{{name}}" name="{{name}}" placeholder="{{placeholder}}">',
     },
     'patient_id': {
-      template: '<div class="input-append"><input type="text" ng-model="value" id="{{name}}" name="{{name}}" placeholder="{{placeholder}}"><button class="btn">Generate</button></div>',
+      template: '<div class="input-append" ng-controller="PageCtrl"><input type="text" ng-model="value" id="{{name}}" name="{{name}}" placeholder="{{placeholder}}"><button class="btn" ng-click="generateButtonClicked()">Generate ID</button></div>',
     },
     'radio': {
       init: function (scope) {

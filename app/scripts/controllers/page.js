@@ -69,4 +69,20 @@ angular.module('pefApp')
     };
 
     $scope.validate = $config.validate;
+    
+    $scope.generateButtonClicked = function () {
+      var modalInstance = $modal.open({
+        templateUrl: 'views/generate_modal.html',
+        controller: 'GenerateModalCtrl',
+        resolve: {
+          header: function() {
+            return 'Enter Patient Information';
+          },
+          content: function() {
+            return '';
+          }
+        }
+      });
+    };
+    
   });
