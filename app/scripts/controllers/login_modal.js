@@ -43,6 +43,6 @@ angular.module('pefApp')
     };
 
     $scope.cancel = function () {
-      $modalInstance.dismiss('cancel');
+      $modalInstance.dismiss('Cancel');
     };
   });

@@ -32,7 +32,7 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
   var selectedTabIndex = 0;
 
   function resetTabs() {
-    $http.get('configuration.json').success(function(data) {
+    $http.get('/configuration.json').success(function(data) {
       config = data;
       tabs = config.tabs;
 
@@ -199,7 +199,7 @@ angular.module('pefApp').service('$config', function factory($http, $rootScope, 
   var validate = function (element, strict) {
     var value = element.value;
 
-    if (strict || (value !== undefined && value.length > 0)) {
+    if (strict || (value !== undefined && value !== null && value.length > 0)) {
       if (element.rules) {
         for (var rule in element.rules) {
           var test = ELEMENT_VALIDATE_TESTS[rule];

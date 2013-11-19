@@ -10,7 +10,10 @@
             {
               "name": "patient_id",
               "title": "Patient ID",
-              "type": "patient_id"
+              "type": "patient_id",
+              "rules": {
+                "required": true
+              }
             },
             {
               "name": "referral_source",

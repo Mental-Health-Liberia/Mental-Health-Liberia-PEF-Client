@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pefApp').directive('pefElement', function($compile) {
+angular.module('pefApp').directive('pefElement', function($compile, $modal) {
   var TYPE_MAP = {
     'select': {
       init: function (scope) {
@@ -14,7 +14,33 @@ angular.module('pefApp').directive('pefElement', function($compile) {
       template: '<input type="text" ng-model="value" id="{{name}}" name="{{name}}" placeholder="{{placeholder}}">',
     },
     'patient_id': {
-      template: '<div class="input-append" ng-controller="PageCtrl"><input type="text" ng-model="value" id="{{name}}" name="{{name}}" placeholder="{{placeholder}}"><button class="btn" ng-click="generateButtonClicked()">Generate ID</button></div>',
+      init: function (scope) {
+        scope.generateButtonClicked = function () {
+          var modalInstance = $modal.open({
+            templateUrl: 'views/generate_modal.html',
+            controller: 'GenerateModalCtrl',
+            resolve: {
+              header: function() {
+                return 'Generate Patient ID';
+              },
+              content: function() {
+                return '';
+              }
+            }
+          });
+
+          modalInstance.result.then(function (result) {
+            if (result !== 'Cancel') {
+              scope.value = result.toString();
+            }
+          });
+        };
+
+        scope.resetButtonClicked = function () {
+          this.value = null;
+        };
+      },
+      template: '<button class="btn" ng-click="generateButtonClicked()" ng-bind="value ? \'Generated\' : \'Generate\'" ng-disabled="value" ng-class="{\'btn-success\': value}"></button> <button class="btn" ng-click="resetButtonClicked()" ng-show="value">Reset</button>',
     },
     'radio': {
       init: function (scope) {

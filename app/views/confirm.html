@@ -6,6 +6,7 @@
       <label class="control-label" for="{{element.name}}">{{element.title}}</label>
       <div class="controls">
         <p ng-switch="element.type">
+          <span ng-switch-when="patient_id" class="text-success">Generated</span>
           <span ng-switch-when="datepicker">{{formatDate(element.value)}}</span>
           <span ng-switch-when="checkbox">
             <span ng-if="element.value.length === 0" class="unset">None Selected</span>
