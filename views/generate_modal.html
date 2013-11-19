@@ -1,0 +1,41 @@
+<div>
+  <div class="modal-header">
+    <h2>{{header}}</h2>
+  </div>
+
+  <div class="modal-body">
+    <div class="alert alert-error" ng-show="failureMessage">{{failureMessage}}</div>
+
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="firstName">First Name</label>
+        <div class="controls">
+          <input type="text" id="firstName" name="firstName" ng-model="$parent.firstName">
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="lastName">Last Name</label>
+        <div class="controls">
+          <input type="text" id="lastName" name="lastName" ng-model="$parent.lastName">
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <label class="control-label" for="birthdate">Birthdate</label>
+        <div class="controls" ng-hide="$parent.unknownBirthdate">
+          <select class="span2" ng-model="$parent.month" id="month" name="month" ng-options="month for month in months()"></select>
+          <select class="span1" ng-model="$parent.day" id="day" name="day" ng-options="day for day in days()"></select>
+          <select class="span1" ng-model="$parent.year" id="year" name="year" ng-options="year for year in years()"></select>
+        </div>
+        <div class="controls">
+          <label class="checkbox"><input type="checkbox" id="unknownBirthdate" name="unknownBirthdate" ng-model="$parent.unknownBirthdate"> Unknown Birthdate (Or Unsure About Birthdate)</label>
+        </div>
+      </div>      
+  </form></div>
+
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-click="generate()" ng-disabled="!valid()"><i class="icon-user icon-white"></i> Generate ID</button>
+    <button class="btn" ng-click="cancel()">Cancel</button>
+  </div>
+</div>
