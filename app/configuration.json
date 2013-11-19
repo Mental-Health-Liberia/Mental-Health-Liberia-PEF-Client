@@ -23,6 +23,7 @@
                 "No response",
                 "Clinician",
                 "Messages",
+                "Radio message",
                 "Other"
               ]
             }
@@ -98,6 +99,16 @@
                 "number": true,
                 "required": true
               }
+            },
+            {
+              "name": "gender",
+              "title": "Gender",
+              "type": "select",
+              "options": [
+                "No Response",
+                "Male",
+                "Female"
+              ]
             },
             {
               "name": "life_role_days",
