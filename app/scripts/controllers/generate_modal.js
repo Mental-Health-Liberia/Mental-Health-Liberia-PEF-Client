@@ -8,13 +8,13 @@ angular.module('pefApp')
 
     $scope.header = header;
 
-    $scope.firstName = "";
-    $scope.lastName = "";
+    $scope.firstName = '';
+    $scope.lastName = '';
 
     $scope.month = MONTH_PLACEHOLDER;
     $scope.day = DAY_PLACEHOLDER;
     $scope.year = YEAR_PLACEHOLDER;
-    
+
     $scope.hash = function() {
       var hashElements = [];
       hashElements = [];
@@ -28,7 +28,7 @@ angular.module('pefApp')
 
       return hashElements.join('').split('').reduce(function(hash, string) {
         hash = ((hash << 5) - hash) + string.charCodeAt(0);
-        return hash & hash; // Convert to 32bit integer
+        return hash & hash; // convert to 32bit integer
       }, 0);
     };
 
@@ -64,7 +64,7 @@ angular.module('pefApp')
       }
 
       return months;
-    }
+    };
 
     $scope.days = function () {
       var days = [];
