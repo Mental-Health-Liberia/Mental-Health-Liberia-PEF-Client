@@ -5,6 +5,10 @@
   margin-top: 20px;
 }
 
+.site-header {
+  margin-top: 8px;
+}
+
 .form-horizontal .control-group {
   margin: 0 0 10px 0;
 }
@@ -44,19 +48,22 @@
     top: 20px;
   }
 
-  #sidenav > .fixed > .nav {
+  #sidenav > .fixed > .nav,
+  .site-header {
     width: 220px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
-  #sidenav > .fixed > .nav {
+  #sidenav > .fixed > .nav,
+  .site-header {
     width: 166px;
   }
 }
 
 @media (min-width: 1200px) {
-  #sidenav > .fixed > .nav {
+  #sidenav > .fixed > .nav,
+  .site-header {
     widtH: 270px;
   }
 }

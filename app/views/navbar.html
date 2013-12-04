@@ -1,5 +1,7 @@
 <div ng-controller="NavbarCtrl" id="sidenav" class="span3">
   <div class="fixed">
+    <h4 class="site-header">Mental Health Patient Encounter Form</h4>
+
     <ul class="nav nav-tabs nav-stacked">
       <li ng-repeat="tab in tabs" ng-class="{'active': tab.selected}">
         <a href="#" ng-click="tabSelected($index)" ng-if="!tab.disabled"><i class="icon-chevron-right" ng-class="{'icon-white': tab.selected}"></i> {{$index + 1}}. {{tab.title}}</a>
